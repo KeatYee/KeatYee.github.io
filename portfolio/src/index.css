@@ -13,6 +13,139 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Custom 3D Round Cursor */
+* {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #60A5FA, #34D399);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
+  box-shadow: 
+    0 0 20px rgba(96, 165, 250, 0.6),
+    0 0 40px rgba(96, 165, 250, 0.3),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.3),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.2);
+  animation: cursorPulse 2s ease-in-out infinite;
+}
+
+.custom-cursor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: cursorHighlight 1.5s ease-in-out infinite alternate;
+}
+
+.custom-cursor.hover {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #34D399, #A78BFA);
+  box-shadow: 
+    0 0 30px rgba(52, 211, 153, 0.8),
+    0 0 60px rgba(52, 211, 153, 0.4),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.4),
+    inset -3px -3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.custom-cursor.click {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(45deg, #F59E0B, #EF4444);
+  animation: cursorClick 0.3s ease;
+}
+
+.custom-cursor.face-hover {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, #A78BFA, #F472B6);
+  box-shadow: 
+    0 0 40px rgba(167, 139, 250, 0.8),
+    0 0 80px rgba(167, 139, 250, 0.4),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.5),
+    inset -4px -4px 8px rgba(0, 0, 0, 0.3);
+  animation: faceInteract 1s ease-in-out infinite;
+}
+
+.custom-cursor.face-hover::before {
+  width: 15px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  animation: faceHighlight 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes cursorPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes cursorHighlight {
+  0% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+@keyframes cursorClick {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes faceInteract {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05) rotate(0deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(1.1) rotate(-5deg);
+  }
+}
+
+@keyframes faceHighlight {
+  0% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
 a {
   font-weight: 500;
   color: #646cff;

@@ -84,7 +84,18 @@ const Hero = () => {
           </div>
         </div>
         <div className="hero-visual">
-          <div className="face-container" ref={splineRef}>
+          <div 
+            className="face-container" 
+            ref={splineRef}
+            onMouseEnter={() => {
+              const cursor = document.querySelector('.custom-cursor');
+              cursor?.classList.add('face-hover');
+            }}
+            onMouseLeave={() => {
+              const cursor = document.querySelector('.custom-cursor');
+              cursor?.classList.remove('face-hover');
+            }}
+          >
             <div className="face-3d">
               {/* Face outline */}
               <div className="face-shape">
