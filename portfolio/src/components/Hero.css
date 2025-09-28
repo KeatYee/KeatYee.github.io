@@ -99,248 +99,63 @@
   perspective: 1000px;
 }
 
-.face-container {
+.spline-container {
   position: relative;
-  width: 350px;
-  height: 350px;
-  transform-style: preserve-3d;
-  transition: transform 0.2s ease-out;
-}
-
-.face-3d {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  animation: gentleBob 4s ease-in-out infinite;
-}
-
-.face-shape {
-  position: relative;
-  width: 220px;
-  height: 280px;
-  margin: 35px auto 0;
-  background: linear-gradient(145deg, #f0f0f0, #d1d1d1);
-  border-radius: 110px 110px 100px 100px;
-  box-shadow: 
-    inset 5px 5px 15px rgba(0,0,0,0.1),
-    inset -5px -5px 15px rgba(255,255,255,0.9),
-    0 10px 30px rgba(96, 165, 250, 0.3);
-  transform: translateZ(20px);
-}
-
-/* Eyes */
-.eyes {
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.eye {
-  width: 45px;
-  height: 35px;
-  background: white;
-  border-radius: 50%;
-  position: relative;
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+  width: 500px;
+  height: 500px;
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 
+    0 20px 60px rgba(96, 165, 250, 0.3),
+    0 0 40px rgba(96, 165, 250, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.eyeball {
-  position: relative;
-  width: 100%;
-  height: 100%;
+.spline-container:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 30px 80px rgba(96, 165, 250, 0.4),
+    0 0 60px rgba(96, 165, 250, 0.2);
 }
 
-.pupil {
+/* Spline canvas styling */
+.spline-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 20px;
+}
+
+/* Loading state */
+.spline-container::before {
+  content: '';
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #1a1a1a;
-  border-radius: 50%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease;
-}
-
-.highlight {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: rgba(255,255,255,0.9);
+  width: 50px;
+  height: 50px;
+  margin: -25px 0 0 -25px;
+  border: 3px solid rgba(96, 165, 250, 0.3);
+  border-top: 3px solid #60A5FA;
   border-radius: 50%;
-  top: 6px;
-  left: 8px;
-  animation: sparkle 2s ease-in-out infinite;
+  animation: splineLoading 1s linear infinite;
+  z-index: 1;
 }
 
-/* Nose */
-.nose {
-  position: absolute;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 12px;
-  height: 20px;
-  background: linear-gradient(145deg, #e6e6e6, #cccccc);
-  border-radius: 6px 6px 8px 8px;
-  box-shadow: 1px 2px 4px rgba(0,0,0,0.1);
+.spline-container canvas + * {
+  display: none;
 }
 
-/* Mouth */
-.mouth {
-  position: absolute;
-  top: 170px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 30px;
+.spline-container:has(canvas)::before {
+  display: none;
 }
 
-.mouth-curve {
-  width: 100%;
-  height: 15px;
-  border: 3px solid #d4776b;
-  border-top: none;
-  border-radius: 0 0 60px 60px;
-  background: linear-gradient(to bottom, #ff6b6b, #d4776b);
-  transition: transform 0.2s ease;
-}
-
-/* Cheeks */
-.cheek {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background: radial-gradient(circle, rgba(255, 182, 193, 0.6), transparent);
-  border-radius: 50%;
-  top: 130px;
-}
-
-.left-cheek {
-  left: 35px;
-}
-
-.right-cheek {
-  right: 35px;
-}
-
-/* Hair */
-.hair {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 240px;
-  height: 120px;
-  background: linear-gradient(145deg, #60A5FA, #34D399);
-  border-radius: 120px 120px 60px 60px;
-  box-shadow: 0 5px 20px rgba(96, 165, 250, 0.4);
-  z-index: -1;
-}
-
-/* Face particles */
-.face-particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.face-particles .particle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: linear-gradient(45deg, #60A5FA, #34D399);
-  border-radius: 50%;
-  opacity: 0.7;
-  animation: faceParticleFloat 6s ease-in-out infinite;
-}
-
-.face-particles .particle:nth-child(1) {
-  top: 10%;
-  left: 15%;
-  animation-delay: 0s;
-}
-
-.face-particles .particle:nth-child(2) {
-  top: 25%;
-  right: 10%;
-  animation-delay: 1.5s;
-}
-
-.face-particles .particle:nth-child(3) {
-  bottom: 20%;
-  left: 20%;
-  animation-delay: 3s;
-}
-
-.face-particles .particle:nth-child(4) {
-  bottom: 15%;
-  right: 25%;
-  animation-delay: 4.5s;
-}
-
-@keyframes gentleBob {
-  0%, 100% {
-    transform: translateY(0px);
+@keyframes splineLoading {
+  0% {
+    transform: rotate(0deg);
   }
-  50% {
-    transform: translateY(-10px);
+  100% {
+    transform: rotate(360deg);
   }
-}
-
-@keyframes sparkle {
-  0%, 100% {
-    opacity: 0.9;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(0.8);
-  }
-}
-
-@keyframes faceParticleFloat {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) scale(1);
-    opacity: 0.7;
-  }
-  25% {
-    transform: translateY(-15px) translateX(8px) scale(1.1);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-8px) translateX(-5px) scale(0.9);
-    opacity: 0.5;
-  }
-  75% {
-    transform: translateY(-20px) translateX(12px) scale(1.05);
-    opacity: 0.8;
-  }
-}
-
-/* Hover effects */
-.face-container:hover .face-shape {
-  box-shadow: 
-    inset 5px 5px 15px rgba(0,0,0,0.1),
-    inset -5px -5px 15px rgba(255,255,255,0.9),
-    0 15px 40px rgba(96, 165, 250, 0.5);
-}
-
-.face-container:hover .hair {
-  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.6);
-}
-
-.face-container:hover .highlight {
-  animation: sparkle 1s ease-in-out infinite;
 }
 
 @media (max-width: 768px) {
