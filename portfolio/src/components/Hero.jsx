@@ -40,7 +40,7 @@ const Hero = () => {
             }}
           >
             <Spline
-              scene="https://prod.spline.design/wpwnds4ZnpomrDZk/scene.splinecode"
+              scene="https://prod.spline.design/pp-zy1ja3UVWvsTC/scene.splinecode"
               onLoad={onLoad}
             />
           </div>
