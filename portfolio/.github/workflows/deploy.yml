@@ -1,0 +1,37 @@
+name: Deploy Vite Project to GitHub Pages
+
+# 👇 Trigger this workflow every time you push to main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # GitHub gives you a free Linux server
+
+    steps:
+      # 1️⃣ Get your code from the repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2️⃣ Setup Node.js so we can run npm
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # 3️⃣ Install dependencies from package.json
+      - name: Install dependencies
+        run: npm install
+
+      # 4️⃣ Build the Vite project (output goes into dist/)
+      - name: Build project
+        run: npm run build
+
+      # 5️⃣ Deploy dist/ folder to gh-pages branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
