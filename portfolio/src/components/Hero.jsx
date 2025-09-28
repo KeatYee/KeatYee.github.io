@@ -42,6 +42,11 @@ const Hero = () => {
             <Spline
               scene="https://prod.spline.design/pp-zy1ja3UVWvsTC/scene.splinecode"
               onLoad={onLoad}
+              style={{ 
+                background: 'transparent',
+                width: '100%',
+                height: '100%'
+              }}
             />
           </div>
         </div>
