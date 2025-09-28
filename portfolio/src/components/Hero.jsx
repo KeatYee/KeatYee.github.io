@@ -7,7 +7,7 @@ const Hero = () => {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      if (splineRef.current && pathRef.current) {
+      if (splineRef.current) {
         const rect = splineRef.current.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
@@ -15,22 +15,45 @@ const Hero = () => {
         const mouseX = e.clientX - centerX;
         const mouseY = e.clientY - centerY;
         
-        const rotateX = (mouseY / window.innerHeight) * 20;
-        const rotateY = (mouseX / window.innerWidth) * 20;
+        // 3D face rotation
+        const rotateX = (mouseY / window.innerHeight) * 15;
+        const rotateY = (mouseX / window.innerWidth) * 15;
         
         splineRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         
-        // Update spline path based on mouse position
-        const intensity = Math.min(Math.abs(mouseX) + Math.abs(mouseY), 100) / 100;
-        const newPath = `M50,200 Q${150 + mouseX * 0.1},${50 + mouseY * 0.1} 250,${200 + intensity * 30} T${350 + mouseX * 0.05},${150 + mouseY * 0.08}`;
-        pathRef.current.setAttribute('d', newPath);
+        // Eye tracking
+        const eyes = splineRef.current.querySelectorAll('.pupil');
+        const eyeMoveX = (mouseX / window.innerWidth) * 8;
+        const eyeMoveY = (mouseY / window.innerHeight) * 8;
+        
+        eyes.forEach(eye => {
+          eye.style.transform = `translate(${eyeMoveX}px, ${eyeMoveY}px)`;
+        });
+        
+        // Mouth expression based on mouse position
+        const mouth = splineRef.current.querySelector('.mouth-curve');
+        const intensity = Math.min(Math.abs(mouseX) + Math.abs(mouseY), 150) / 150;
+        const smileIntensity = intensity * 10;
+        
+        if (mouth) {
+          mouth.style.transform = `scaleX(${1 + intensity * 0.2}) translateY(${-smileIntensity}px)`;
+        }
       }
     };
 
     const handleMouseLeave = () => {
-      if (splineRef.current && pathRef.current) {
-        splineRef.current.style.transform = 'rotateX(10deg) rotateY(15deg)';
-        pathRef.current.setAttribute('d', 'M50,200 Q150,50 250,200 T350,150');
+      if (splineRef.current) {
+        splineRef.current.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        
+        const eyes = splineRef.current.querySelectorAll('.pupil');
+        eyes.forEach(eye => {
+          eye.style.transform = 'translate(0px, 0px)';
+        });
+        
+        const mouth = splineRef.current.querySelector('.mouth-curve');
+        if (mouth) {
+          mouth.style.transform = 'scaleX(1) translateY(0px)';
+        }
       }
     };
 
@@ -61,44 +84,49 @@ const Hero = () => {
           </div>
         </div>
         <div className="hero-visual">
-          <div className="spline-container" ref={splineRef}>
-            <svg className="spline-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="splineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#60A5FA" />
-                  <stop offset="50%" stopColor="#34D399" />
-                  <stop offset="100%" stopColor="#A78BFA" />
-                </linearGradient>
-                <filter id="glow">
-                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                  <feMerge> 
-                    <feMergeNode in="coloredBlur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
-              <path 
-                ref={pathRef}
-                className="spline-path"
-                d="M50,200 Q150,50 250,200 T350,150"
-                stroke="url(#splineGradient)"
-                strokeWidth="3"
-                fill="none"
-                filter="url(#glow)"
-              />
-            </svg>
-            <div className="spline-nodes">
-              <div className="node node-1"></div>
-              <div className="node node-2"></div>
-              <div className="node node-3"></div>
-              <div className="node node-4"></div>
-            </div>
-            <div className="spline-particles">
-              <div className="particle"></div>
-              <div className="particle"></div>
-              <div className="particle"></div>
-              <div className="particle"></div>
-              <div className="particle"></div>
+          <div className="face-container" ref={splineRef}>
+            <div className="face-3d">
+              {/* Face outline */}
+              <div className="face-shape">
+                {/* Eyes */}
+                <div className="eyes">
+                  <div className="eye left-eye">
+                    <div className="eyeball">
+                      <div className="pupil"></div>
+                      <div className="highlight"></div>
+                    </div>
+                  </div>
+                  <div className="eye right-eye">
+                    <div className="eyeball">
+                      <div className="pupil"></div>
+                      <div className="highlight"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Nose */}
+                <div className="nose"></div>
+                
+                {/* Mouth */}
+                <div className="mouth">
+                  <div className="mouth-curve"></div>
+                </div>
+                
+                {/* Face features */}
+                <div className="cheek left-cheek"></div>
+                <div className="cheek right-cheek"></div>
+              </div>
+              
+              {/* Hair/Top */}
+              <div className="hair"></div>
+              
+              {/* Floating elements around face */}
+              <div className="face-particles">
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+              </div>
             </div>
           </div>
         </div>
