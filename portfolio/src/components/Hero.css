@@ -234,3 +234,46 @@
     font-size: 2rem;
   }
 }
+
+/* Smooth Sequential Text Animations */
+.animate-text-1,
+.animate-text-2,
+.animate-text-3 {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: smoothSlideIn 0.8s ease-out forwards;
+}
+
+.animate-text-1 {
+  animation-delay: 0.2s;
+}
+
+.animate-text-2 {
+  animation-delay: 0.6s;
+}
+
+.animate-text-3 {
+  animation-delay: 1.0s;
+}
+
+@keyframes smoothSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced hover effects for animated elements */
+.animate-text-1:hover .highlight {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.animate-text-2:hover {
+  color: #60A5FA;
+  transition: color 0.3s ease;
+}
