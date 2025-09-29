@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './Contact.css';
 
 const Contact = () => {
+  const [titleRef, titleVisible] = useScrollAnimation({ threshold: 0.3 });
+  const [infoRef, infoVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [formRef, formVisible] = useScrollAnimation({ threshold: 0.2 });
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,9 +32,17 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <h2 className="section-title">Get In Touch</h2>
+        <h2 
+          ref={titleRef}
+          className={`section-title fade-in-up ${titleVisible ? 'visible' : ''}`}
+        >
+          Get In Touch
+        </h2>
         <div className="contact-content">
-          <div className="contact-info">
+          <div 
+            ref={infoRef}
+            className={`contact-info fade-in-left ${infoVisible ? 'visible' : ''}`}
+          >
             <h3>Let's work together!</h3>
             <p>
               I'm always interested in new opportunities and interesting projects. 
@@ -59,7 +72,11 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form 
+            ref={formRef}
+            className={`contact-form fade-in-right ${formVisible ? 'visible' : ''}`} 
+            onSubmit={handleSubmit}
+          >
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input

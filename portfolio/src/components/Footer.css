@@ -40,9 +40,47 @@
   color: #34D399;
 }
 
-@media (max-width: 768px) {
+/* Enhanced Responsive Design */
+@media (max-width: 480px) {
+  .footer .container {
+    padding: 0 1rem;
+  }
+  
   .footer-content {
     flex-direction: column;
     text-align: center;
+    gap: 0.8rem;
+  }
+  
+  .footer-text p {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .footer .container {
+    padding: 0 1.5rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer .container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .footer .container {
+    padding: 0 2rem;
   }
 }

@@ -1,7 +1,11 @@
 import React from 'react';
+import { useScrollAnimation, useStaggeredAnimation } from '../hooks/useScrollAnimation';
 import './Projects.css';
 
 const Projects = () => {
+  const [titleRef, titleVisible] = useScrollAnimation({ threshold: 0.3 });
+  const [visibleProjects, setProjectRef] = useStaggeredAnimation(3, 200);
+
   const projects = [
     {
       title: "E-Commerce Platform",
@@ -32,10 +36,19 @@ const Projects = () => {
   return (
     <section id="projects" className="projects">
       <div className="container">
-        <h2 className="section-title">Featured Projects</h2>
+        <h2 
+          ref={titleRef}
+          className={`section-title fade-in-up ${titleVisible ? 'visible' : ''}`}
+        >
+          Featured Projects
+        </h2>
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <div key={index} className="project-card">
+            <div 
+              key={index} 
+              ref={setProjectRef(index)}
+              className={`project-card stagger-item ${visibleProjects.has(index) ? 'visible' : ''}`}
+            >
               <div className="project-image">
                 <div className="project-placeholder">
                   <span>Project {index + 1}</span>
