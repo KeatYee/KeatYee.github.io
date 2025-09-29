@@ -1,32 +1,60 @@
 .about {
-  padding: 5rem 0;
-  background: #111827;
+  padding: 6rem 0;
+  background: linear-gradient(135deg, var(--soft-pink) 0%, var(--light-purple) 50%, var(--bright-cyan) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(183, 148, 246, 0.1) 0%, transparent 70%);
+  animation: aboutFloat 20s ease-in-out infinite;
+}
+
+@keyframes aboutFloat {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
 }
 
 .about .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
-  color: white;
+  font-size: 2.8rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  color: var(--text-dark);
   margin-bottom: 3rem;
   position: relative;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
 }
 
 .section-title::after {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(45deg, #60A5FA, #34D399);
-  border-radius: 2px;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(45deg, var(--primary-purple), var(--coral-pink), var(--sunny-yellow));
+  border-radius: 10px;
+  animation: titleUnderline 3s ease-in-out infinite alternate;
 }
 
 .about-content {
@@ -37,17 +65,23 @@
 }
 
 .about-text p {
-  color: #CBD5E1;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
+  color: var(--text-medium);
+  font-size: 1.2rem;
+  font-family: 'Varela Round', sans-serif;
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(183, 148, 246, 0.2);
 }
 
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-top: 2.5rem;
+  margin-top: 3rem;
 }
 
 .stat {
