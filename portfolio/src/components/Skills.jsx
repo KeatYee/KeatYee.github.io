@@ -1,11 +1,7 @@
 import React from 'react';
-import { useScrollAnimation, useStaggeredAnimation } from '../hooks/useScrollAnimation';
 import './Skills.css';
 
 const Skills = () => {
-  const [titleRef, titleVisible] = useScrollAnimation({ threshold: 0.3 });
-  const [visibleCategories, setCategoryRef] = useStaggeredAnimation(3, 150);
-
   const skillCategories = [
     {
       title: "Frontend",
@@ -42,19 +38,10 @@ const Skills = () => {
   return (
     <section id="skills" className="skills">
       <div className="container">
-        <h2 
-          ref={titleRef}
-          className={`section-title fade-in-up ${titleVisible ? 'visible' : ''}`}
-        >
-          Skills & Technologies
-        </h2>
+        <h2 className="section-title">Skills & Technologies</h2>
         <div className="skills-grid">
           {skillCategories.map((category, categoryIndex) => (
-            <div 
-              key={categoryIndex} 
-              ref={setCategoryRef(categoryIndex)}
-              className={`skill-category stagger-item ${visibleCategories.has(categoryIndex) ? 'visible' : ''}`}
-            >
+            <div key={categoryIndex} className="skill-category">
               <h3 className="category-title">{category.title}</h3>
               <div className="skills-list">
                 {category.skills.map((skill, skillIndex) => (

@@ -1,13 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import Spline from '@splinetool/react-spline';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './Hero.css';
 
 const Hero = () => {
   const splineRef = useRef(null);
-  const [titleRef, titleVisible] = useScrollAnimation({ threshold: 0.2 });
-  const [contentRef, contentVisible] = useScrollAnimation({ threshold: 0.1 });
-  const [visualRef, visualVisible] = useScrollAnimation({ threshold: 0.1 });
 
   const onLoad = (splineApp) => {
     // Store the Spline app instance for potential interactions
@@ -17,14 +13,8 @@ const Hero = () => {
   return (
     <section id="home" className="hero">
       <div className="container">
-        <div 
-          ref={contentRef}
-          className={`hero-content fade-in-left ${contentVisible ? 'visible' : ''}`}
-        >
-          <h1 
-            ref={titleRef}
-            className={`hero-title fade-in-up ${titleVisible ? 'visible' : ''}`}
-          >
+        <div className="hero-content">
+          <h1 className="hero-title">
             Hi, I'm <span className="highlight">Keat Yee</span>
           </h1>
           <h2 className="hero-subtitle">Full Stack Developer</h2>
@@ -37,10 +27,7 @@ const Hero = () => {
             <a href="#contact" className="btn btn-secondary">Contact Me</a>
           </div>
         </div>
-        <div 
-          ref={visualRef}
-          className={`hero-visual fade-in-right ${visualVisible ? 'visible' : ''}`}
-        >
+        <div className="hero-visual">
           <div 
             className="spline-container"
             onMouseEnter={() => {
