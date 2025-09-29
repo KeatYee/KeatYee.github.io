@@ -1,18 +1,6 @@
 .skills {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, var(--coral-pink) 0%, var(--bright-cyan) 50%, var(--sunny-yellow) 100%);
-  position: relative;
-}
-
-.skills::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 50%, rgba(251, 182, 206, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(157, 236, 249, 0.3) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(251, 211, 141, 0.3) 0%, transparent 50%);
-  pointer-events: none;
+  padding: 5rem 0;
+  background: #111827;
 }
 
 .skills .container {
@@ -31,31 +19,23 @@
 }
 
 .skill-category {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 2.5rem;
-  border-radius: 25px;
-  border: 3px solid var(--primary-purple);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(183, 148, 246, 0.3);
+  background: #1E293B;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(96, 165, 250, 0.1);
+  transition: all 0.3s ease;
 }
 
 .skill-category:hover {
-  border-color: var(--coral-pink);
-  box-shadow: 0 20px 50px rgba(251, 182, 206, 0.4);
-  transform: translateY(-10px) scale(1.02);
-  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(96, 165, 250, 0.3);
+  box-shadow: 0 10px 30px rgba(96, 165, 250, 0.1);
 }
 
 .category-title {
-  background: linear-gradient(45deg, var(--primary-purple), var(--coral-pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.5rem;
+  color: #60A5FA;
+  font-size: 1.4rem;
   margin: 0 0 1.5rem 0;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
   position: relative;
 }
@@ -91,50 +71,32 @@
 }
 
 .skill-name {
-  color: var(--text-dark);
-  font-family: 'Varela Round', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
+  color: #E5E7EB;
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
 .skill-percentage {
-  background: linear-gradient(45deg, var(--primary-purple), var(--coral-pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
-  font-size: 1rem;
+  color: #60A5FA;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
 .skill-bar {
   width: 100%;
-  height: 12px;
-  background: rgba(183, 148, 246, 0.2);
-  border-radius: 10px;
+  height: 8px;
+  background: rgba(96, 165, 250, 0.1);
+  border-radius: 4px;
   overflow: hidden;
   position: relative;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .skill-progress {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary-purple), var(--coral-pink), var(--sunny-yellow));
-  border-radius: 10px;
-  transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: linear-gradient(90deg, #60A5FA, #34D399);
+  border-radius: 4px;
+  transition: width 1s ease-in-out;
   position: relative;
-  animation: skillShimmer 3s ease-in-out infinite alternate;
-}
-
-@keyframes skillShimmer {
-  0% {
-    background: linear-gradient(90deg, var(--primary-purple), var(--coral-pink), var(--sunny-yellow));
-  }
-  50% {
-    background: linear-gradient(90deg, var(--coral-pink), var(--bright-cyan), var(--primary-purple));
-  }
-  100% {
-    background: linear-gradient(90deg, var(--sunny-yellow), var(--primary-purple), var(--soft-cyan));
-  }
 }
 
 .skill-progress::after {

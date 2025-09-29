@@ -3,12 +3,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(15px);
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(10px);
   z-index: 1000;
   padding: 1rem 0;
-  border-bottom: 3px solid var(--primary-purple);
-  box-shadow: 0 4px 20px rgba(183, 148, 246, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header .container {
@@ -21,24 +20,10 @@
 }
 
 .logo h2 {
-  background: linear-gradient(45deg, var(--primary-purple), var(--coral-pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #60A5FA;
   margin: 0;
-  font-size: 1.8rem;
-  font-weight: 900;
-  font-family: 'Nunito', sans-serif;
-  animation: logoGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes logoGlow {
-  0% {
-    background: linear-gradient(45deg, var(--primary-purple), var(--coral-pink));
-  }
-  100% {
-    background: linear-gradient(45deg, var(--coral-pink), var(--sunny-yellow));
-  }
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .nav ul {
@@ -50,38 +35,30 @@
 }
 
 .nav a {
-  color: var(--text-dark);
+  color: #E5E7EB;
   text-decoration: none;
-  font-weight: 600;
-  font-family: 'Varela Round', sans-serif;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-weight: 500;
+  transition: color 0.3s ease;
   position: relative;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
 }
 
 .nav a:hover {
-  color: white;
-  background: linear-gradient(45deg, var(--primary-purple), var(--coral-pink));
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(183, 148, 246, 0.4);
+  color: #60A5FA;
 }
 
 .nav a::after {
   content: '';
   position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: -5px;
+  left: 0;
   width: 0;
-  height: 3px;
-  background: linear-gradient(45deg, var(--sunny-yellow), var(--coral-pink));
-  border-radius: 3px;
-  transition: width 0.4s ease;
+  height: 2px;
+  background: #60A5FA;
+  transition: width 0.3s ease;
 }
 
 .nav a:hover::after {
-  width: 80%;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
