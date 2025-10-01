@@ -198,65 +198,43 @@
   transition: color 0.3s ease;
 }
 
-/* Typing Effect Animation */
-.typing-effect {
-  overflow: hidden;
-  border-right: 3px solid var(--accent-blue);
-  white-space: nowrap;
-  width: 0;
+/* Continuous Typing Effect Animation */
+.typing-effect-continuous {
   opacity: 1 !important;
   transform: translateY(0) !important;
-  animation: 
-    typing 3s steps(52, end) 0.8s forwards,
-    blink 0.75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  min-height: 1.6em;
+  display: inline-block;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+.cursor-blink {
+  color: var(--accent-blue);
+  animation: blink-cursor 0.8s step-end infinite;
+  font-weight: 400;
+  margin-left: 2px;
 }
 
-@keyframes blink {
+@keyframes blink-cursor {
   from, to {
-    border-color: transparent;
+    opacity: 1;
   }
   50% {
-    border-color: var(--accent-blue);
+    opacity: 0;
   }
-}
-
-/* Remove cursor blinking after typing completes */
-.typing-effect.typed {
-  border-right: none;
-  animation: none;
 }
 
 @media (max-width: 768px) {
-  .typing-effect {
-    animation: 
-      typing 3s steps(52, end) 0.8s forwards,
-      blink 0.75s step-end infinite;
+  .typing-effect-continuous {
+    white-space: normal;
+    overflow: visible;
   }
 }
 
 @media (max-width: 480px) {
-  .typing-effect {
+  .typing-effect-continuous {
+    font-size: 1rem;
     white-space: normal;
-    animation: 
-      fadeIn 1s ease-in 0.8s forwards;
-    border-right: none;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+    overflow: visible;
   }
 }
