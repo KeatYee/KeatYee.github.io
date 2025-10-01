@@ -1,8 +1,7 @@
 .footer {
-  background: linear-gradient(135deg, #2d1b57 0%, #1a0d2e 100%);
-  border-top: 1px solid rgba(245, 158, 11, 0.2);
+  background: #FFEDD5;
+  border-top: 1px solid rgba(249, 115, 22, 0.2);
   padding: 2rem 0;
-  box-shadow: 0 -4px 20px rgba(45, 27, 87, 0.3);
 }
 
 .footer .container {
@@ -27,20 +26,18 @@
 
 .footer-text p:first-child {
   font-weight: 500;
-  color: #e879f9;
+  color: #CBD5E1;
 }
 
 .footer-links a {
-  color: #f59e0b;
+  color: #60A5FA;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
-  text-shadow: 0 1px 2px rgba(245, 158, 11, 0.3);
+  transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #ec4899;
-  text-shadow: 0 2px 4px rgba(236, 72, 153, 0.4);
+  color: #34D399;
 }
 
 @media (max-width: 768px) {

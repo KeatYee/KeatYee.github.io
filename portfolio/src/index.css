@@ -3,9 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light;
+  color: rgba(30, 30, 30, 0.87);
+  background-color: #FFF7ED;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,15 +24,15 @@
   left: 0;
   width: 20px;
   height: 20px;
-  background: linear-gradient(45deg, #f59e0b, #ec4899, #8b5cf6);
+  background: linear-gradient(45deg, #F97316, #EC4899);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
   box-shadow: 
-    0 0 20px rgba(245, 158, 11, 0.6),
-    0 0 40px rgba(245, 158, 11, 0.3),
+    0 0 20px rgba(249, 115, 22, 0.6),
+    0 0 40px rgba(249, 115, 22, 0.3),
     inset 2px 2px 4px rgba(255, 255, 255, 0.3),
     inset -2px -2px 4px rgba(0, 0, 0, 0.2);
   animation: cursorPulse 2s ease-in-out infinite;
@@ -51,35 +51,14 @@
   animation: cursorHighlight 1.5s ease-in-out infinite alternate;
 }
 
-.custom-cursor.hover {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(45deg, #ec4899, #8b5cf6, #f59e0b);
-  box-shadow: 
-    0 0 30px rgba(236, 72, 153, 0.8),
-    0 0 60px rgba(236, 72, 153, 0.4),
-    inset 3px 3px 6px rgba(255, 255, 255, 0.4),
-    inset -3px -3px 6px rgba(0, 0, 0, 0.3);
-}
+.custom-cursor.hovering {
+  background: linear-gradient(45deg, #EC4899, #A855F7);
 
-.custom-cursor.click {
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(45deg, #f59e0b, #ec4899);
-  animation: cursorClick 0.3s ease;
-}
+.custom-cursor.clickable {
+  background: linear-gradient(45deg, #A855F7, #EC4899);
 
 .custom-cursor.face-hover {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(45deg, #8b5cf6, #ec4899, #f59e0b);
-  box-shadow: 
-    0 0 40px rgba(139, 92, 246, 0.8),
-    0 0 80px rgba(139, 92, 246, 0.4),
-    inset 4px 4px 8px rgba(255, 255, 255, 0.5),
-    inset -4px -4px 8px rgba(0, 0, 0, 0.3);
-  animation: faceInteract 1s ease-in-out infinite;
-}
+  background: linear-gradient(45deg, #F97316, #A855F7);
 
 .custom-cursor.face-hover::before {
   width: 15px;

@@ -1,6 +1,6 @@
 .skills {
   padding: 5rem 0;
-  background: linear-gradient(135deg, #2d1b57 0%, #4c1d95 50%, #5b21b6 100%);
+  background: #FFEDD5;
 }
 
 .skills .container {
@@ -19,28 +19,25 @@
 }
 
 .skill-category {
-  background: linear-gradient(145deg, #2d1b57, #4c1d95);
+  background: #FFFFFF;
   padding: 2rem;
   border-radius: 16px;
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(96, 165, 250, 0.1);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(76, 29, 149, 0.3);
 }
 
 .skill-category:hover {
-  border-color: rgba(245, 158, 11, 0.4);
-  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
-  transform: translateY(-5px);
+  border-color: rgba(249, 115, 22, 0.3);
+  box-shadow: 0 10px 30px rgba(96, 165, 250, 0.1);
 }
 
 .category-title {
-  color: #f59e0b;
+  color: #F97316;
   font-size: 1.4rem;
   margin: 0 0 1.5rem 0;
   font-weight: 600;
   text-align: center;
   position: relative;
-  text-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
 }
 
 .category-title::after {
@@ -51,9 +48,8 @@
   transform: translateX(-50%);
   width: 40px;
   height: 2px;
-  background: linear-gradient(45deg, #f59e0b, #ec4899);
+  background: #F97316;
   border-radius: 1px;
-  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
 }
 
 .skills-list {
@@ -75,35 +71,32 @@
 }
 
 .skill-name {
-  color: #E5E7EB;
+  color: #374151;
   font-weight: 500;
   font-size: 0.95rem;
 }
 
 .skill-percentage {
-  color: #f59e0b;
+  color: #60A5FA;
   font-weight: 600;
   font-size: 0.9rem;
-  text-shadow: 0 1px 2px rgba(245, 158, 11, 0.3);
 }
 
 .skill-bar {
   width: 100%;
-  height: 10px;
-  background: rgba(245, 158, 11, 0.15);
-  border-radius: 5px;
+  height: 8px;
+  background: rgba(96, 165, 250, 0.1);
+  border-radius: 4px;
   overflow: hidden;
   position: relative;
-  border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
 .skill-progress {
   height: 100%;
-  background: linear-gradient(90deg, #f59e0b, #ec4899, #8b5cf6);
+  background: linear-gradient(90deg, #60A5FA, #34D399);
   border-radius: 4px;
   transition: width 1s ease-in-out;
   position: relative;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
 }
 
 .skill-progress::after {

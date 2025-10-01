@@ -1,6 +1,6 @@
 .about {
   padding: 5rem 0;
-  background: linear-gradient(135deg, #2d1b57 0%, #4c1d95 50%, #5b21b6 100%);
+  background: #FFEDD5;
 }
 
 .about .container {
@@ -12,7 +12,7 @@
 .section-title {
   text-align: center;
   font-size: 2.5rem;
-  color: white;
+  color: #1F2937;
   margin-bottom: 3rem;
   position: relative;
 }
@@ -25,9 +25,8 @@
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(45deg, #f59e0b, #ec4899, #8b5cf6);
+  background: linear-gradient(45deg, #F97316, #EC4899);
   border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
 }
 
 .about-content {
@@ -38,7 +37,7 @@
 }
 
 .about-text p {
-  color: #CBD5E1;
+  color: #4B5563;
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
@@ -54,31 +53,22 @@
 .stat {
   text-align: center;
   padding: 1.5rem;
-  background: rgba(245, 158, 11, 0.15);
+  background: rgba(96, 165, 250, 0.1);
   border-radius: 12px;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-}
-
-.stat:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(96, 165, 250, 0.2);
 }
 
 .stat h3 {
   font-size: 2rem;
-  color: #f59e0b;
+  color: #60A5FA;
   margin: 0 0 0.5rem 0;
   font-weight: bold;
-  text-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
 }
 
 .stat p {
-  color: #e879f9;
+  color: #94A3B8;
   margin: 0;
   font-size: 0.9rem;
-  font-weight: 500;
 }
 
 .about-image {
@@ -95,15 +85,12 @@
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background: linear-gradient(45deg, #f59e0b, #ec4899, #8b5cf6, #f59e0b);
-  background-size: 300% 300%;
-  animation: gradientShift 4s ease infinite;
+  background: linear-gradient(45deg, #60A5FA, #34D399);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 30px rgba(245, 158, 11, 0.4);
 }
 
 .profile-circle::before {
@@ -113,26 +100,16 @@
   left: 4px;
   right: 4px;
   bottom: 4px;
-  background: #2d1b57;
+  background: #111827;
   border-radius: 50%;
 }
 
 .profile-circle span {
   position: relative;
   z-index: 2;
-  color: #f59e0b;
+  color: #60A5FA;
   font-size: 1.1rem;
   font-weight: 500;
-  text-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
-}
-
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
 }
 
 @media (max-width: 768px) {
