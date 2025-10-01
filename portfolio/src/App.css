@@ -8,7 +8,7 @@
   width: 100%;
   max-width: 100vw;
   min-height: 100vh;
-  background: #FFF7ED;
+  background: #0F172A;
   overflow-x: hidden;
   box-sizing: border-box;
 }
@@ -42,7 +42,7 @@ section {
 .section-title {
   text-align: center;
   font-size: 2.5rem;
-  color: #1F2937;
+  color: white;
   margin-bottom: 3rem;
   position: relative;
   font-weight: 700;

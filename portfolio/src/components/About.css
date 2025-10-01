@@ -1,6 +1,6 @@
 .about {
   padding: 5rem 0;
-  background: #FFEDD5;
+  background: #111827;
 }
 
 .about .container {
@@ -12,7 +12,7 @@
 .section-title {
   text-align: center;
   font-size: 2.5rem;
-  color: #1F2937;
+  color: white;
   margin-bottom: 3rem;
   position: relative;
 }
@@ -25,7 +25,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(45deg, #F97316, #EC4899);
+  background: linear-gradient(45deg, #60A5FA, #34D399);
   border-radius: 2px;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .about-text p {
-  color: #4B5563;
+  color: #CBD5E1;
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
