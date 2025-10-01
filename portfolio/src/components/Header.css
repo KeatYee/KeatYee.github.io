@@ -22,7 +22,7 @@
 }
 
 .logo h2 {
-  color: var(--accent-blue);
+  color: var(--accent-color);
   margin: 0;
   font-size: 0.9rem;
   font-weight: 600;
@@ -53,7 +53,7 @@
 }
 
 .nav a:hover {
-  color: var(--accent-blue);
+  color: var(--accent-color);
 }
 
 .nav a::after {
@@ -63,7 +63,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent-blue);
+  background: var(--accent-color);
   transition: width 0.3s ease;
 }
 

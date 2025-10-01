@@ -1,7 +1,15 @@
 .about {
   padding: 5rem 0;
-  background: var(--bg-secondary);
-  transition: background 0.3s ease;
+  background: #1a1a1a;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-radius: 40px 40px 0 0;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+  padding-top: 6rem;
+  min-height: 100vh;
+  will-change: transform;
 }
 
 .about .container {
@@ -27,7 +35,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
+  background: var(--accent-color);
   border-radius: 2px;
 }
 
@@ -41,8 +49,8 @@
   color: var(--text-primary);
   margin-bottom: 2rem;
   padding-left: 1rem;
-  border-left: 4px solid var(--accent-blue);
-  transition: color 0.3s ease;
+  border-left: 4px solid var(--accent-color);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* My Background Section */
@@ -69,9 +77,13 @@
   border-radius: 16px;
   border: 1px solid var(--border-color);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto 2rem auto;
+}
+
+.education-card:last-child {
+  margin-bottom: 0;
 }
 
 .education-card:hover {
@@ -83,7 +95,7 @@
   flex-shrink: 0;
   width: 80px;
   height: 80px;
-  background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
+  background: var(--accent-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -100,7 +112,7 @@
 
 .education-details .institution {
   font-size: 1.2rem;
-  color: var(--accent-blue);
+  color: var(--accent-color);
   margin: 0 0 0.3rem 0;
   font-weight: 500;
 }
@@ -127,7 +139,7 @@
 
 .highlight-badge {
   background: rgba(96, 165, 250, 0.1);
-  color: var(--accent-blue);
+  color: var(--accent-color);
   padding: 0.4rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
@@ -137,10 +149,9 @@
 }
 
 .highlight-badge:hover {
-  background: var(--accent-blue);
+  background: var(--accent-color);
   color: white;
   transform: translateY(-2px);
-}
 }
 
 .stat {
@@ -166,7 +177,7 @@
   top: 0;
   bottom: 0;
   width: 3px;
-  background: linear-gradient(180deg, var(--accent-blue), var(--accent-green));
+  background: var(--accent-color);
   border-radius: 2px;
 }
 
@@ -182,12 +193,12 @@
   top: 0;
   width: 16px;
   height: 16px;
-  background: var(--accent-blue);
+  background: var(--accent-color);
   border-radius: 50%;
   border: 3px solid var(--bg-secondary);
   box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.2);
   z-index: 2;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .timeline-item:hover .timeline-dot {
@@ -201,7 +212,7 @@
   border-radius: 12px;
   border: 1px solid var(--border-color);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .timeline-content:hover {
@@ -211,7 +222,7 @@
 
 .timeline-date {
   display: inline-block;
-  background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
+  background: var(--accent-color);
   color: white;
   padding: 0.4rem 1rem;
   border-radius: 20px;
@@ -229,7 +240,7 @@
 
 .timeline-content .company {
   font-size: 1.1rem;
-  color: var(--accent-blue);
+  color: var(--accent-color);
   margin: 0 0 1rem 0;
   font-weight: 500;
 }
@@ -249,7 +260,7 @@
 
 .timeline-skills span {
   background: rgba(96, 165, 250, 0.1);
-  color: var(--accent-blue);
+  color: var(--accent-color);
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
   font-size: 0.85rem;
@@ -259,7 +270,7 @@
 }
 
 .timeline-skills span:hover {
-  background: var(--accent-blue);
+  background: var(--accent-color);
   color: white;
   transform: translateY(-2px);
 }
@@ -339,6 +350,11 @@
 }
 
 @media (max-width: 480px) {
+  .about {
+    border-radius: 30px 30px 0 0;
+    margin-top: -30px;
+  }
+
   .section-title {
     font-size: 1.8rem;
   }

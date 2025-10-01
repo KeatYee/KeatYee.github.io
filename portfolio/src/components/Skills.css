@@ -1,6 +1,16 @@
 .skills {
   padding: 5rem 0;
-  background: #111827;
+  background: #1a1a1a;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: sticky;
+  top: 0;
+  z-index: 12;
+  border-radius: 40px 40px 0 0;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+  margin-top: -40px;
+  padding-top: 6rem;
+  min-height: 100vh;
+  will-change: transform;
 }
 
 .skills .container {

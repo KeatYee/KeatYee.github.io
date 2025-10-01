@@ -5,7 +5,9 @@ const About = () => {
   return (
     <section id="about" className="about">
       <div className="container">
-        <h2 className="section-title">About Me</h2>
+        <h2 className="section-title">
+          About Me
+        </h2>
         
         {/* My Background Section */}
         <div className="about-subsection">
@@ -27,6 +29,8 @@ const About = () => {
         {/* Education Card Section */}
         <div className="about-subsection">
           <h3 className="subsection-title">Education</h3>
+          
+          {/* Bachelor's Degree */}
           <div className="education-card">
             <div className="education-icon">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -46,6 +50,30 @@ const About = () => {
                 <span className="highlight-badge">GPA: 3.8/4.0</span>
                 <span className="highlight-badge">Dean's List</span>
                 <span className="highlight-badge">Honor Student</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Diploma */}
+          <div className="education-card">
+            <div className="education-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                <circle cx="12" cy="14" r="2"/>
+              </svg>
+            </div>
+            <div className="education-details">
+              <h4>Diploma in Information Technology</h4>
+              <p className="institution">Sunway University</p>
+              <p className="duration">2020 - 2022</p>
+              <p className="description">
+                Foundation in programming, database management, and network fundamentals. 
+                Developed strong problem-solving skills and technical foundations in IT.
+              </p>
+              <div className="education-highlights">
+                <span className="highlight-badge">GPA: 3.7/4.0</span>
+                <span className="highlight-badge">Best Student Award</span>
               </div>
             </div>
           </div>

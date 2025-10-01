@@ -27,13 +27,29 @@ function App() {
 
     const handleMouseEnter = (e) => {
       // Check if hovering over interactive elements
-      if (e.target.matches('a, button, .btn, .project-card, .skill-item, input, textarea, .nav a')) {
+      const clickableSelectors = [
+        'a', 'button', '.btn', '.project-card', '.skill-item', 
+        'input', 'textarea', 'select', '.nav a', '.theme-toggle',
+        '.timeline-item', '.education-card', '.scroll-down',
+        '[role="button"]', '[onclick]', '.hero-name', '.highlight',
+        '.tech-tag', '.timeline-skills span', '.highlight-badge'
+      ].join(', ');
+      
+      if (e.target.matches(clickableSelectors) || e.target.closest(clickableSelectors)) {
         cursorRef.current?.classList.add('hover');
       }
     };
 
     const handleMouseLeave = (e) => {
-      if (e.target.matches('a, button, .btn, .project-card, .skill-item, input, textarea, .nav a')) {
+      const clickableSelectors = [
+        'a', 'button', '.btn', '.project-card', '.skill-item', 
+        'input', 'textarea', 'select', '.nav a', '.theme-toggle',
+        '.timeline-item', '.education-card', '.scroll-down',
+        '[role="button"]', '[onclick]', '.hero-name', '.highlight',
+        '.tech-tag', '.timeline-skills span', '.highlight-badge'
+      ].join(', ');
+      
+      if (e.target.matches(clickableSelectors) || e.target.closest(clickableSelectors)) {
         cursorRef.current?.classList.remove('hover');
       }
     };

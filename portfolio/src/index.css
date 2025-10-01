@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@700;800;900&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -7,35 +9,38 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Dark Theme (Default) */
 :root,
 [data-theme="dark"] {
-  --bg-primary: #0F172A;
-  --bg-secondary: #111827;
-  --bg-card: #1E293B;
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #1a1a1a;
   --text-primary: #FFFFFF;
   --text-secondary: #94A3B8;
   --text-body: #CBD5E1;
-  --accent-blue: #60A5FA;
-  --accent-green: #34D399;
+  --accent-color: #60A5FA;
   --border-color: rgba(96, 165, 250, 0.1);
-  --header-bg: rgba(17, 24, 39, 0.95);
+  --header-bg: rgba(0, 0, 0, 0.95);
 }
 
 /* Light Theme */
 [data-theme="light"] {
-  --bg-primary: #F0F9FF;
-  --bg-secondary: #E0F2FE;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F5F5;
   --bg-card: #FFFFFF;
   --text-primary: #0F172A;
   --text-secondary: #475569;
   --text-body: #64748B;
-  --accent-blue: #0EA5E9;
-  --accent-green: #10B981;
+  --accent-color: #0EA5E9;
   --border-color: rgba(14, 165, 233, 0.2);
-  --header-bg: rgba(240, 249, 255, 0.95);
+  --header-bg: rgba(255, 255, 255, 0.95);
 }
 
 /* Custom 3D Round Cursor */
@@ -49,17 +54,17 @@
   left: 0;
   width: 20px;
   height: 20px;
-  background: linear-gradient(45deg, #60A5FA, #34D399);
+  background: linear-gradient(135deg, #60A5FA, #3B82F6);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background 0.3s ease;
   box-shadow: 
-    0 0 20px rgba(96, 165, 250, 0.6),
-    0 0 40px rgba(96, 165, 250, 0.3),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.3),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.2);
+    0 0 15px rgba(96, 165, 250, 0.5),
+    0 0 30px rgba(59, 130, 246, 0.3),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.15);
   animation: cursorPulse 2s ease-in-out infinite;
 }
 
@@ -77,21 +82,33 @@
 }
 
 .custom-cursor.hover {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(45deg, #34D399, #A78BFA);
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #A78BFA, #8B5CF6);
   box-shadow: 
-    0 0 30px rgba(52, 211, 153, 0.8),
-    0 0 60px rgba(52, 211, 153, 0.4),
-    inset 3px 3px 6px rgba(255, 255, 255, 0.4),
-    inset -3px -3px 6px rgba(0, 0, 0, 0.3);
+    0 0 20px rgba(167, 139, 250, 0.7),
+    0 0 40px rgba(139, 92, 246, 0.4),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.15);
+  animation: cursorGrow 0.6s ease-in-out infinite alternate;
+}
+
+.custom-cursor.hover::before {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  animation: cursorHighlight 0.8s ease-in-out infinite alternate;
 }
 
 .custom-cursor.click {
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(45deg, #F59E0B, #EF4444);
-  animation: cursorClick 0.3s ease;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #FBBF24, #F59E0B);
+  box-shadow: 
+    0 0 18px rgba(251, 191, 36, 0.8),
+    0 0 35px rgba(245, 158, 11, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4);
+  animation: cursorClick 0.3s ease-out;
 }
 
 .custom-cursor.face-hover {
@@ -133,12 +150,21 @@
   }
 }
 
+@keyframes cursorGrow {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
 @keyframes cursorClick {
   0% {
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.85);
   }
   100% {
     transform: translate(-50%, -50%) scale(1);
