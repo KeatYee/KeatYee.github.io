@@ -22,7 +22,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="logo">
-          <h2>Keat Yee</h2>
+          <h2>Portfolio 2025</h2>
         </div>
         <nav className="nav">
           <ul>

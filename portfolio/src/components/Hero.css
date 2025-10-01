@@ -194,6 +194,67 @@
 }
 
 .animate-text-2:hover {
-  color: #60A5FA;
+  color: var(--accent-blue);
   transition: color 0.3s ease;
+}
+
+/* Typing Effect Animation */
+.typing-effect {
+  overflow: hidden;
+  border-right: 3px solid var(--accent-blue);
+  white-space: nowrap;
+  width: 0;
+  animation: 
+    typing 3s steps(52, end) 0.8s forwards,
+    blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--accent-blue);
+  }
+}
+
+/* Remove cursor blinking after typing completes */
+.typing-effect.typed {
+  border-right: none;
+  animation: none;
+}
+
+@media (max-width: 768px) {
+  .typing-effect {
+    animation: 
+      typing 3s steps(52, end) 0.8s forwards,
+      blink 0.75s step-end infinite;
+  }
+}
+
+@media (max-width: 480px) {
+  .typing-effect {
+    white-space: normal;
+    animation: 
+      fadeIn 1s ease-in 0.8s forwards;
+    border-right: none;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }
