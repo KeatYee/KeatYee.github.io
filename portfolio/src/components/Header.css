@@ -3,27 +3,35 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(17, 24, 39, 0.95);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
   z-index: 1000;
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .header .container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  gap: 2rem;
 }
 
 .logo h2 {
-  color: #60A5FA;
+  color: var(--accent-blue);
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
 }
 
 .nav ul {
@@ -35,7 +43,7 @@
 }
 
 .nav a {
-  color: #E5E7EB;
+  color: var(--text-body);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -43,7 +51,7 @@
 }
 
 .nav a:hover {
-  color: #60A5FA;
+  color: var(--accent-blue);
 }
 
 .nav a::after {
@@ -53,7 +61,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: #60A5FA;
+  background: var(--accent-blue);
   transition: width 0.3s ease;
 }
 
@@ -61,9 +69,37 @@
   width: 100%;
 }
 
+.theme-toggle {
+  background: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--accent-blue);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--border-color);
+  border-color: var(--accent-blue);
+  transform: rotate(15deg);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
 @media (max-width: 768px) {
   .header .container {
     padding: 0 1rem;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
   }
   
   .nav ul {
@@ -71,6 +107,41 @@
   }
   
   .nav a {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header .container {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .theme-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .nav {
+    width: 100%;
+  }
+
+  .nav ul {
+    gap: 0.8rem;
+    font-size: 0.8rem;
   }
 }
