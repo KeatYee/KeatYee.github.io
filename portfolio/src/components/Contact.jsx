@@ -1,102 +1,59 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You can integrate with email services like EmailJS, Netlify Forms, etc.
-    alert('Thank you for your message! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
-  };
-
   return (
     <section id="contact" className="contact">
       <div className="container">
         <h2 className="section-title">Get In Touch</h2>
-        <div className="contact-content">
-          <div className="contact-info">
-            <h3>Let's work together!</h3>
-            <p>
-              I'm always interested in new opportunities and interesting projects. 
-              Whether you have a question or just want to say hello, feel free to reach out!
-            </p>
-            <div className="contact-methods">
-              <div className="contact-method">
-                <div className="method-icon">📧</div>
-                <div className="method-info">
-                  <h4>Email</h4>
-                  <p>your.email@example.com</p>
-                </div>
-              </div>
-              <div className="contact-method">
-                <div className="method-icon">💼</div>
-                <div className="method-info">
-                  <h4>LinkedIn</h4>
-                  <p>linkedin.com/in/yourprofile</p>
-                </div>
-              </div>
-              <div className="contact-method">
-                <div className="method-icon">🐱</div>
-                <div className="method-info">
-                  <h4>GitHub</h4>
-                  <p>github.com/yourusername</p>
-                </div>
-              </div>
+        <p className="contact-subtitle">
+          I'm always interested in new opportunities and interesting projects. 
+          Whether you have a question or just want to say hello, feel free to reach out!
+        </p>
+        <div className="contact-methods-grid">
+          <a href="mailto:keatyee66@gmail.com" className="contact-card">
+            <div className="contact-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
             </div>
-          </div>
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
+            <h3>Email</h3>
+            <p>keatyee66@gmail.com</p>
+          </a>
+          
+          <a href="https://www.linkedin.com/in/loke-keat-yee" target="_blank" rel="noopener noreferrer" className="contact-card">
+            <div className="contact-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
             </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
+            <h3>LinkedIn</h3>
+            <p>Connect with me</p>
+          </a>
+          
+          <a href="https://wa.me/60186693396" target="_blank" rel="noopener noreferrer" className="contact-card">
+            <div className="contact-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
             </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
+            <h3>WhatsApp</h3>
+            <p>+60 18-669 3396</p>
+          </a>
+          
+          <a href="https://github.com/KeatYee" target="_blank" rel="noopener noreferrer" className="contact-card">
+            <div className="contact-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                <path d="M9 18c-4.51 2-5-2-7-2"/>
+              </svg>
             </div>
-            <button type="submit" className="submit-btn">
-              Send Message
-            </button>
-          </form>
+            <h3>GitHub</h3>
+            <p>Check out my code</p>
+          </a>
         </div>
       </div>
     </section>
