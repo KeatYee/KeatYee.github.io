@@ -23,7 +23,7 @@ const About = () => {
               learning and pushing the boundaries of what's possible with code. I believe in writing 
               clean, efficient code that makes a difference.
             </p>
-            <a href="/resume.pdf" download="KeatYee_Resume.pdf" className="resume-download-btn">
+            <a href="/keatyee/resume.pdf" download="KeatYee_Resume.pdf" className="resume-download-btn" target="_blank" rel="noopener noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7 10 12 15 17 10"/>
