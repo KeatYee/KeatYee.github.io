@@ -12,7 +12,7 @@
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
@@ -29,20 +29,91 @@
   color: var(--text-body);
 }
 
-.footer-links a {
+.back-to-top-fixed {
+  position: fixed;
+  right: 1rem;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  border-radius: 50px;
   color: var(--accent-color);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(100px);
+  pointer-events: none;
 }
 
-.footer-links a:hover {
-  color: var(--accent-yellow);
+.back-to-top-fixed.visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.back-to-top-fixed.visible:hover {
+  background: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+  color: var(--bg-primary);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+}
+
+.back-to-top-fixed svg {
+  transition: transform 0.3s ease;
+}
+
+.back-to-top-fixed:hover svg {
+  transform: translateY(-3px);
+}
+
+.heart {
+  display: inline-block;
+  color: #ef4444;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  font-size: 1.1em;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(1.2);
+  }
+  20%, 40% {
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
     text-align: center;
+  }
+
+  .back-to-top-fixed {
+    right: 1rem;
+    bottom: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  .back-to-top-fixed.visible {
+    transform: translateX(0);
+  }
+
+  .back-to-top-fixed.visible:hover {
+    transform: translateY(-5px);
   }
 }
