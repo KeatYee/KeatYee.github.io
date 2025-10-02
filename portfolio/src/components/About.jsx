@@ -40,8 +40,12 @@ const About = () => {
             </div>
             <div className="education-details">
               <h4>Bachelor of Computer Science (Hons)</h4>
-              <p className="institution">Sunway University</p>
-              <p className="duration">2022 - Present</p>
+              <p className="institution">
+                <a href="https://sunwayuniversity.edu.my/school-of-computing-and-artificial-intelligence/courses/bachelor-of-science-honours-computer" target="_blank" rel="noopener noreferrer">
+                  Sunway University
+                </a>
+              </p>
+              <p className="duration">2024 - 2026</p>
               <p className="description">
                 Specializing in Software Engineering, Data Structures, and Web Development. 
                 Actively participating in coding competitions and contributing to open-source projects.
@@ -49,7 +53,7 @@ const About = () => {
               <div className="education-highlights">
                 <span className="highlight-badge">GPA: 3.8/4.0</span>
                 <span className="highlight-badge">Dean's List</span>
-                <span className="highlight-badge">Honor Student</span>
+                <span className="highlight-badge">Jeffrey Cheah Ace Scholarship Holder</span>
               </div>
             </div>
           </div>
@@ -65,15 +69,19 @@ const About = () => {
             </div>
             <div className="education-details">
               <h4>Diploma in Information Technology</h4>
-              <p className="institution">Sunway University</p>
-              <p className="duration">2020 - 2022</p>
+              <p className="institution">
+                <a href="https://sunway.edu.my/velocity/programme/diploma-in-information-technology" target="_blank" rel="noopener noreferrer">
+                  Sunway College @ Velocity
+                </a>
+              </p>
+              <p className="duration">2022 - 2024</p>
               <p className="description">
                 Foundation in programming, database management, and network fundamentals. 
                 Developed strong problem-solving skills and technical foundations in IT.
               </p>
               <div className="education-highlights">
-                <span className="highlight-badge">GPA: 3.7/4.0</span>
-                <span className="highlight-badge">Best Student Award</span>
+                <span className="highlight-badge">GPA: 3.81/4.0</span>
+                <span className="highlight-badge">Best FYP</span>
               </div>
             </div>
           </div>
@@ -87,22 +95,25 @@ const About = () => {
               <div className="timeline-dot"></div>
               <div className="timeline-content">
                 <div className="timeline-date">Jun 2024 - Aug 2024</div>
-                <h4>Frontend Developer Intern</h4>
-                <p className="company">Tech Company XYZ</p>
+                <h4>Web Developer Intern</h4>
+                <p className="company">
+                  <a href="https://softwell.asia/" target="_blank" rel="noopener noreferrer">
+                    Softwell Sdn Bhd
+                  </a>
+                </p>
                 <p className="role-description">
-                  Developed responsive web applications using React and TypeScript. 
-                  Collaborated with the design team to implement pixel-perfect UI components 
-                  and improved website performance by 40%.
+                  Contributed to the enhancement of the existing 50Gram Wedding Platform
+                   by implementing new features and improving user experience.
                 </p>
                 <div className="timeline-skills">
-                  <span>React</span>
-                  <span>TypeScript</span>
-                  <span>Tailwind CSS</span>
+                  <span>Laravel</span>
+                  <span>Javascript</span>
+                  <span>PHP</span>
                 </div>
               </div>
             </div>
 
-            <div className="timeline-item">
+            {/* <div className="timeline-item">
               <div className="timeline-dot"></div>
               <div className="timeline-content">
                 <div className="timeline-date">Jan 2024 - May 2024</div>
@@ -139,7 +150,7 @@ const About = () => {
                   <span>WordPress</span>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

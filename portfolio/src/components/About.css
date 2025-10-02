@@ -117,6 +117,17 @@
   font-weight: 500;
 }
 
+.education-details .institution a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.education-details .institution a:hover {
+  opacity: 0.8;
+  color: #60a5fa;
+}
+
 .education-details .duration {
   font-size: 1rem;
   color: var(--text-secondary);
@@ -243,6 +254,17 @@
   color: var(--accent-color);
   margin: 0 0 1rem 0;
   font-weight: 500;
+}
+
+.timeline-content .company a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.timeline-content .company a:hover {
+  opacity: 0.8;
+  color: #60a5fa;
 }
 
 .timeline-content .role-description {

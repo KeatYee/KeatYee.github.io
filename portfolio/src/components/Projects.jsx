@@ -4,28 +4,44 @@ import './Projects.css';
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+      title: "Diacare",
+      description: "A comprehensive healthcare web application designed for diabetes management. Features include patient monitoring, health tracking, medication reminders, and personalized health insights.",
+      technologies: ["React", "Node.js", "MongoDB", "Chart.js"],
       github: "#",
       live: "#",
       image: "project1"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      technologies: ["React", "Firebase", "Material-UI", "WebSocket"],
+      title: "50Gram Wedding Platform",
+      description: "Enhanced the existing wedding platform during my internship at Softwell Sdn Bhd. Implemented new features and improved user experience for couples planning their special day.",
+      technologies: ["PHP", "Laravel", "JavaScript", "MySQL"],
       github: "#",
-      live: "#",
+      live: "https://50gram.com.my",
       image: "project2"
     },
     {
-      title: "Weather Dashboard",
-      description: "A responsive weather application that displays current conditions and forecasts using external APIs with beautiful data visualizations.",
-      technologies: ["JavaScript", "Chart.js", "REST API", "CSS3"],
+      title: "FoodBank Management System",
+      description: "A GUI-based food bank management program built with Scala. Features inventory tracking, donation management, and distribution scheduling to help food banks operate efficiently.",
+      technologies: ["Scala", "JavaFX", "SQLite"],
       github: "#",
       live: "#",
       image: "project3"
+    },
+    {
+      title: "AWS Google Maps Extension",
+      description: "A browser extension that integrates AWS services with Google Maps. Provides enhanced mapping capabilities, location-based data storage, and cloud-powered geospatial analysis.",
+      technologies: ["JavaScript", "AWS", "Google Maps API", "Chrome Extension"],
+      github: "#",
+      live: "#",
+      image: "project4"
+    },
+    {
+      title: "Prismo - Online Tutoring Platform",
+      description: "A comprehensive Figma prototype for an online tutoring platform. Designed with intuitive user flows, interactive learning features, and seamless communication between tutors and students.",
+      technologies: ["Figma", "UI/UX Design", "Prototyping", "User Research"],
+      github: "#",
+      live: "#",
+      image: "project5"
     }
   ];
 
@@ -33,7 +49,7 @@ const Projects = () => {
     <section id="projects" className="projects">
       <div className="container">
         <h2 className="section-title">
-          Projects I Did
+          Projects
         </h2>
         <div className="projects-grid">
           {projects.map((project, index) => (

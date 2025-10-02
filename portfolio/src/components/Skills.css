@@ -19,123 +19,42 @@
   padding: 0 2rem;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  gap: 2.5rem;
-  margin-top: 3rem;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.skill-category {
-  background: #1E293B;
-  padding: 2rem;
-  border-radius: 16px;
-  border: 1px solid rgba(96, 165, 250, 0.1);
-  transition: all 0.3s ease;
-}
-
-.skill-category:hover {
-  border-color: rgba(96, 165, 250, 0.3);
-  box-shadow: 0 10px 30px rgba(96, 165, 250, 0.1);
-}
-
-.category-title {
-  color: #60A5FA;
-  font-size: 1.4rem;
-  margin: 0 0 1.5rem 0;
-  font-weight: 600;
-  text-align: center;
-  position: relative;
-}
-
-.category-title::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 2px;
-  background: #60A5FA;
-  border-radius: 1px;
-}
-
-.skills-list {
+.skills-column {
+  max-width: 900px;
+  margin: 3rem auto 0;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding: 40px 0;
 }
 
 .skill-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.skill-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
+  padding: 20px 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  will-change: transform, opacity;
 }
 
 .skill-name {
   color: #E5E7EB;
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
-.skill-percentage {
-  color: #60A5FA;
   font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.skill-bar {
-  width: 100%;
-  height: 8px;
-  background: rgba(96, 165, 250, 0.1);
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-}
-
-.skill-progress {
-  height: 100%;
-  background: linear-gradient(90deg, #60A5FA, #34D399);
-  border-radius: 4px;
-  transition: width 1s ease-in-out;
-  position: relative;
-}
-
-.skill-progress::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+  font-size: 1.8rem;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .skills-column {
+    padding: 30px 20px;
+    gap: 1.2rem;
   }
-  
-  .skill-category {
-    padding: 1.5rem;
+
+  .skill-item {
+    padding: 15px;
+  }
+
+  .skill-name {
+    font-size: 1.4rem;
   }
 }
