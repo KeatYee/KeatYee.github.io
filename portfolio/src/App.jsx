@@ -12,6 +12,32 @@ function App() {
   const cursorRef = useRef(null);
 
   useEffect(() => {
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animatable elements
+    const animatableElements = document.querySelectorAll(
+      '.education-card, .timeline-item, .project-card, .contact-card, ' +
+      '.subsection-title, .contact-subtitle, .highlight-badge, ' +
+      '.timeline-skills span, .tech-tag'
+    );
+
+    animatableElements.forEach(el => {
+      el.classList.add('animate-on-scroll');
+      observer.observe(el);
+    });
+
     // Create custom cursor element
     const cursor = document.createElement('div');
     cursor.className = 'custom-cursor';
@@ -74,6 +100,7 @@ function App() {
 
     // Cleanup
     return () => {
+      observer.disconnect();
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseover', handleMouseEnter);
       document.removeEventListener('mouseout', handleMouseLeave);

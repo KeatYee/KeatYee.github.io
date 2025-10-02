@@ -1,16 +1,17 @@
 .skills {
   padding: 5rem 0;
-  background: #1a1a1a;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--bg-card);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   position: sticky;
   top: 0;
   z-index: 12;
   border-radius: 40px 40px 0 0;
-  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
   margin-top: -40px;
   padding-top: 6rem;
   min-height: 100vh;
-  will-change: transform;
+  will-change: transform, opacity;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .skills .container {
@@ -36,12 +37,12 @@
 }
 
 .skill-name {
-  color: #E5E7EB;
+  color: var(--text-primary);
   font-weight: 600;
   font-size: 1.8rem;
   text-align: center;
   letter-spacing: 1px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {

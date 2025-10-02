@@ -1,15 +1,16 @@
 .about {
   padding: 5rem 0;
-  background: #1a1a1a;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--bg-card);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   position: sticky;
   top: 0;
   z-index: 10;
   border-radius: 40px 40px 0 0;
-  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
   padding-top: 6rem;
   min-height: 100vh;
-  will-change: transform;
+  will-change: transform, opacity;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .about .container {
@@ -50,7 +51,12 @@
   margin-bottom: 2rem;
   padding-left: 1rem;
   border-left: 4px solid var(--accent-color);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
+}
+
+.subsection-title:hover {
+  transform: translateX(5px);
+  border-left-color: var(--accent-yellow);
 }
 
 /* My Background Section */
@@ -73,30 +79,50 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-secondary) 100%);
+  color: var(--bg-primary);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
-  border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+  border-radius: 50px;
+  border: 2px solid var(--accent-yellow);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
   margin-top: 1.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .resume-download-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
-  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(251, 191, 36, 0.6);
+  background: var(--bg-primary);
+  color: var(--accent-yellow);
+  border-color: var(--accent-yellow);
 }
 
 .resume-download-btn:active {
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1);
 }
 
 .resume-download-btn svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
+  transition: transform 0.3s ease;
+}
+
+.resume-download-btn:hover svg {
+  transform: translateY(2px);
+  animation: bounce 0.6s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
 }
 
 /* Education Card */
@@ -108,7 +134,7 @@
   border-radius: 16px;
   border: 1px solid var(--border-color);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   max-width: 900px;
   margin: 0 auto 2rem auto;
 }
@@ -187,7 +213,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   border: 1px solid rgba(96, 165, 250, 0.3);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .highlight-badge:hover {
@@ -254,7 +280,7 @@
   border-radius: 12px;
   border: 1px solid var(--border-color);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .timeline-content:hover {
@@ -319,7 +345,7 @@
   font-size: 0.85rem;
   font-weight: 500;
   border: 1px solid rgba(96, 165, 250, 0.2);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .timeline-skills span:hover {

@@ -64,8 +64,9 @@ section {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(45deg, #60A5FA, #34D399);
+  background: var(--accent-yellow);
   border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
 }
 
 /* Utility classes */
