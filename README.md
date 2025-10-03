@@ -1,5 +1,18 @@
 ## Hi there 👋
 
+I'm Keat Yee, a passionate developer building modern web applications with React and other cutting-edge technologies.
+
+### 🌐 Portfolio
+Check out my portfolio website: **[keatyee.github.io/keatyee](https://keatyee.github.io/keatyee/)**
+
+### 🚀 About Me
+- 💻 Building responsive and interactive web applications
+- 🎨 Focused on creating beautiful user experiences
+- 🌱 Continuously learning and exploring new technologies
+- ⚡ Fun fact: Built with ❤️ using React & Vite
+
+### 📫 Get In Touch
+Feel free to explore my projects and reach out through my portfolio website!
 <!--
 **KeatYee/keatyee** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
