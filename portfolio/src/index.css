@@ -72,9 +72,9 @@ html {
 
 /* Light Theme */
 [data-theme="light"] {
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F5F5F5;
-  --bg-card: #FFFFFF;
+  --bg-primary: #FFF8F0;
+  --bg-secondary: #F5EFE6;
+  --bg-card: #FFF8F0;
   --text-primary: #0F172A;
   --text-secondary: #475569;
   --text-body: #64748B;
@@ -82,7 +82,7 @@ html {
   --accent-secondary: #F59E0B;
   --accent-yellow: #EAB308;
   --border-color: rgba(37, 99, 235, 0.2);
-  --header-bg: rgba(255, 255, 255, 0.95);
+  --header-bg: rgba(255, 248, 240, 0.95);
 }
 
 /* Custom 3D Round Cursor */
