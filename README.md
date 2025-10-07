@@ -3,7 +3,7 @@
 I'm Keat Yee, a passionate developer building modern web applications with React and other cutting-edge technologies.
 
 ### 🌐 Portfolio
-Check out my portfolio website: **[keatyee.github.io/keatyee](https://keatyee.github.io/keatyee/)**
+Check out my portfolio website: **[keatyee.github.io](https://keatyee.github.io/)**
 
 ### 🚀 About Me
 - 💻 Building responsive and interactive web applications
