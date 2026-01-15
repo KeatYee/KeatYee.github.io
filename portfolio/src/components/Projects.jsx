@@ -7,31 +7,32 @@ const Projects = () => {
       title: "Diacare",
       description: "A comprehensive healthcare web application designed for diabetes management. Features include patient monitoring, health tracking, medication reminders, and personalized health insights.",
       technologies: ["React", "Node.js", "MongoDB", "Chart.js"],
-      github: "#",
+      github: "https://github.com/KeatYee/diaCare",
       live: "#",
-      image: "project1"
+      poster: "/diaCarePoster.pdf",
+      image: "/diaCare.png"
     },
     {
       title: "50Gram Wedding Platform",
       description: "Enhanced the existing wedding platform during my internship at Softwell Sdn Bhd. Implemented new features and improved user experience for couples planning their special day.",
       technologies: ["PHP", "Laravel", "JavaScript", "MySQL"],
       github: "#",
-      live: "https://50gram.com.my",
-      image: "project2"
+      live: "https://50gramwedding.com/app/",
+      image: "/50Gram.png"
     },
     {
-      title: "FoodBank Management System",
+      title: "Scala Based FoodBank Management System",
       description: "A GUI-based food bank management program built with Scala. Features inventory tracking, donation management, and distribution scheduling to help food banks operate efficiently.",
       technologies: ["Scala", "JavaFX", "SQLite"],
-      github: "#",
+      github: "https://github.com/sunwaydcis/final-project-KeatYee",
       live: "#",
-      image: "project3"
+      image: "foodBankSystem.png"
     },
     {
       title: "AWS Google Maps Extension",
       description: "A browser extension that integrates AWS services with Google Maps. Provides enhanced mapping capabilities, location-based data storage, and cloud-powered geospatial analysis.",
       technologies: ["JavaScript", "AWS", "Google Maps API", "Chrome Extension"],
-      github: "#",
+      github: "https://github.com/KeatYee/fake-food-review-detector",
       live: "#",
       image: "project4"
     },
@@ -55,9 +56,13 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div key={index} className="project-card">
               <div className="project-image">
-                <div className="project-placeholder">
-                  <span>Project {index + 1}</span>
-                </div>
+                {project.image ? (
+                  <img src={project.image} alt={project.title} />
+                ) : (
+                  <div className="project-placeholder">
+                    <span>Project {index + 1}</span>
+                  </div>
+                )}
               </div>
               <div className="project-content">
                 <h3>{project.title}</h3>
@@ -74,6 +79,11 @@ const Projects = () => {
                   <a href={project.live} className="project-link">
                     <span>Live Demo</span>
                   </a>
+                  {project.poster && (
+                    <a href={project.poster} target="_blank" rel="noopener noreferrer" className="project-link">
+                      <span>View Poster</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
