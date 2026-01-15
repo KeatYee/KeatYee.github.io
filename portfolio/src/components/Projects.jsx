@@ -16,7 +16,7 @@ const Projects = () => {
       title: "50Gram Wedding Platform",
       description: "Enhanced the existing wedding platform during my internship at Softwell Sdn Bhd. Implemented new features and improved user experience for couples planning their special day.",
       technologies: ["PHP", "Laravel", "JavaScript", "MySQL"],
-      github: "#",
+      github: null,
       live: "https://50gramwedding.com/app/",
       image: "/50Gram.png"
     },
@@ -25,24 +25,24 @@ const Projects = () => {
       description: "A GUI-based food bank management program built with Scala. Features inventory tracking, donation management, and distribution scheduling to help food banks operate efficiently.",
       technologies: ["Scala", "JavaFX", "SQLite"],
       github: "https://github.com/sunwaydcis/final-project-KeatYee",
-      live: "#",
-      image: "foodBankSystem.png"
+      live: null,
+      image: "/foodBankSystem.png"
     },
     {
       title: "AWS Google Maps Extension",
       description: "A browser extension that integrates AWS services with Google Maps. Provides enhanced mapping capabilities, location-based data storage, and cloud-powered geospatial analysis.",
       technologies: ["JavaScript", "AWS", "Google Maps API", "Chrome Extension"],
       github: "https://github.com/KeatYee/fake-food-review-detector",
-      live: "#",
-      image: "project4"
+      live: null,
+      image: "/project4.png"
     },
     {
       title: "Prismo - Online Tutoring Platform",
       description: "A comprehensive Figma prototype for an online tutoring platform. Designed with intuitive user flows, interactive learning features, and seamless communication between tutors and students.",
       technologies: ["Figma", "UI/UX Design", "Prototyping", "User Research"],
-      github: "#",
-      live: "#",
-      image: "project5"
+      github: null,
+      live: null,
+      image: "/project5.png"
     }
   ];
 
@@ -73,12 +73,16 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="project-links">
-                  <a href={project.github} className="project-link">
-                    <span>GitHub</span>
-                  </a>
-                  <a href={project.live} className="project-link">
-                    <span>Live Demo</span>
-                  </a>
+                  {project.github && (
+                    <a href={project.github} className="project-link" target="_blank" rel="noopener noreferrer">
+                      <span>GitHub</span>
+                    </a>
+                  )}
+                  {project.live && (
+                    <a href={project.live} className="project-link" target="_blank" rel="noopener noreferrer">
+                      <span>Live Demo</span>
+                    </a>
+                  )}
                   {project.poster && (
                     <a href={project.poster} target="_blank" rel="noopener noreferrer" className="project-link">
                       <span>View Poster</span>

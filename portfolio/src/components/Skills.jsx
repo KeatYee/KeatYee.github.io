@@ -71,7 +71,7 @@ const Skills = () => {
         <div className="skills-column">
           {skills.map((skill, index) => (
             <div 
-              key={`skill-${index}`} 
+              key={index} 
               className="skill-item"
               ref={(el) => (skillItemsRef.current[index] = el)}
             >

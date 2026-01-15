@@ -106,7 +106,7 @@ const Hero = () => {
 
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, loopNum, typingSpeed]);
+  }, [displayText, isDeleting, loopNum, typingSpeed, textToType]);
 
   return (
     <section id="home" className="hero">

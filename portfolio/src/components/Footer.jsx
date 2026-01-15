@@ -24,7 +24,7 @@ const Footer = () => {
         <div className="container">
           <div className="footer-content">
             <div className="footer-text">
-              <p>&copy; 2025 Keat Yee. All rights reserved.</p>
+              <p>&copy; {new Date().getFullYear()} Keat Yee. All rights reserved.</p>
               <p>Built with <span className="heart">❤️</span> using React & Vite • Hosted on GitHub Pages</p>
             </div>
           </div>
