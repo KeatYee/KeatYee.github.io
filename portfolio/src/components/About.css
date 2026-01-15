@@ -1,16 +1,10 @@
 .about {
   padding: 5rem 0;
-  background: var(--bg-card);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  position: sticky;
-  top: 0;
+  background: var(--bg-primary);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
   z-index: 10;
-  border-radius: 40px 40px 0 0;
-  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
-  padding-top: 6rem;
-  min-height: 100vh;
   will-change: transform, opacity;
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .about .container {
@@ -26,6 +20,7 @@
   margin-bottom: 4rem;
   position: relative;
   transition: color 0.3s ease;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .section-title::after {
@@ -50,13 +45,15 @@
   color: var(--text-primary);
   margin-bottom: 2rem;
   padding-left: 1rem;
-  border-left: 4px solid var(--accent-color);
+  border-left: 3px dashed var(--accent-color);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 700;
 }
 
 .subsection-title:hover {
   transform: translateX(5px);
-  border-left-color: var(--accent-yellow);
+  border-left-color: var(--accent-color);
 }
 
 /* My Background Section */
@@ -74,35 +71,254 @@
   transition: color 0.3s ease;
 }
 
+/* Resume Download Button - Order Ticket Style */
 .resume-download-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-secondary) 100%);
-  color: var(--bg-primary);
+  background: var(--bg-card);
+  color: var(--accent-color);
   text-decoration: none;
   font-weight: 700;
   font-size: 1rem;
-  border-radius: 50px;
-  border: 2px solid var(--accent-yellow);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+  border-radius: 8px;
+  border: 2px dotted var(--accent-color);
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0px var(--shadow-color);
   margin-top: 1.5rem;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.resume-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px var(--shadow-color);
+  background: var(--accent-color);
+  color: var(--bg-primary);
+  border-style: solid;
+}
+
+.resume-download-btn svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.3s ease;
+}
+
+.resume-download-btn:hover svg {
+  transform: translateY(2px);
+}
+
+/* Education Cards - Ticket/Receipt Style */
+.education-card {
+  display: flex;
+  gap: 2rem;
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 2px dashed var(--accent-color);
+  box-shadow: 
+    4px 4px 0px var(--shadow-color),
+    0 2px 8px rgba(211, 84, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
   position: relative;
   overflow: hidden;
 }
 
-.resume-download-btn:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 8px 30px rgba(251, 191, 36, 0.6);
+.education-card::before,
+.education-card::after {
+  content: '';
+  position: absolute;
+  left: -5px;
+  width: 12px;
+  height: 12px;
   background: var(--bg-primary);
-  color: var(--accent-yellow);
-  border-color: var(--accent-yellow);
+  border-radius: 50%;
 }
 
-.resume-download-btn:active {
-  transform: translateY(-2px) scale(1);
+.education-card::before {
+  top: -6px;
+}
+
+.education-card::after {
+  bottom: -6px;
+}
+
+.education-card:last-child {
+  margin-bottom: 0;
+}
+
+.education-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 
+    6px 6px 0px var(--shadow-color),
+    0 4px 16px rgba(211, 84, 0, 0.15);
+  border-color: var(--accent-color);
+}
+
+.education-icon {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background: var(--accent-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 2px 2px 0px rgba(211, 84, 0, 0.2);
+}
+
+.education-details h4 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  transition: color 0.3s ease;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 700;
+}
+
+.education-details .institution {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  margin: 0 0 0.3rem 0;
+  font-weight: 600;
+}
+
+.education-details .institution a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.education-details .institution a:hover {
+  opacity: 0.8;
+  color: var(--accent-color);
+}
+
+.education-details .duration {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0 0 1rem 0;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.education-details .description {
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.education-highlights {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.highlight-badge {
+  background: rgba(211, 84, 0, 0.1);
+  color: var(--accent-color);
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(211, 84, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-family: 'Nunito', sans-serif;
+}
+
+.highlight-badge:hover {
+  background: var(--accent-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 0px var(--shadow-color);
+}
+
+/* Working Experience Timeline - Stitched Thread */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 2rem;
+}
+
+/* Stitched Thread Line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: repeating-linear-gradient(
+    180deg,
+    var(--accent-color) 0px,
+    var(--accent-color) 8px,
+    transparent 8px,
+    transparent 14px
+  );
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 2.5rem;
+}
+
+/* Timeline Dot - Knot Style */
+.timeline-dot {
+  position: absolute;
+  left: -2.5rem;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--accent-color);
+  border-radius: 3px;
+  border: 3px solid var(--bg-card);
+  box-shadow: 0 0 0 2px var(--accent-color), inset 0 0 0 3px var(--bg-card);
+  z-index: 2;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(45deg);
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: rotate(45deg) scale(1.2);
+  box-shadow: 0 0 0 4px var(--accent-color), inset 0 0 0 3px var(--bg-card);
+}
+
+.timeline-content {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  box-shadow: 
+    3px 3px 0px var(--shadow-color),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.timeline-content:hover {
+  transform: translateX(8px);
+  box-shadow: 
+    5px 5px 0px var(--shadow-color),
+    0 4px 16px rgba(211, 84, 0, 0.1);
+  border-color: var(--accent-color);
+}
+
+.timeline-date {
+  display: inline-block;
+  background: var(--accent-color);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-family: 'Nunito', sans-serif;
 }
 
 .resume-download-btn svg {

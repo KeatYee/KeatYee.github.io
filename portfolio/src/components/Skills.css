@@ -1,61 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
 .skills {
-  padding: 5rem 0;
-  background: var(--bg-card);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  position: sticky;
-  top: 0;
-  z-index: 12;
-  border-radius: 40px 40px 0 0;
-  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
-  margin-top: -40px;
-  padding-top: 6rem;
-  min-height: 100vh;
-  will-change: transform, opacity;
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  padding: 5rem 2rem;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
 }
 
 .skills .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
 }
 
-.skills-column {
-  max-width: 900px;
-  margin: 3rem auto 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 40px 0;
-}
-
-.skill-item {
+.section-title {
   text-align: center;
-  padding: 20px 0;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  will-change: transform, opacity;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* Skills Grid - Menu Board Layout */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  padding: 2rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Skill Card - Menu Tag / Paper Card Style */
+.skill-jar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.25rem;
+  background: var(--bg-card);
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  box-shadow: 2px 2px 0px var(--accent-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-height: 100px;
+}
+
+.skill-jar:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 6px 12px var(--shadow-color);
 }
 
 .skill-name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: var(--text-primary);
-  font-weight: 600;
-  font-size: 1.8rem;
   text-align: center;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .skills {
+    padding: 3rem 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+  }
+  
+  .skill-jar {
+    padding: 1.25rem 1rem;
+    border-radius: 6px;
+    min-height: 85px;
+  }
+  
+  .skill-jar:hover {
+    transform: translateY(-3px);
+    box-shadow: 3px 4px 8px var(--shadow-color);
+  }
+  
+  .skill-name {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+    gap: 12px;
+  }
+  
+  .skill-jar {
+    padding: 1rem 0.75rem;
+    min-height: 75px;
+    border-width: 1.5px;
+    border-radius: 5px;
+  }
+  
+  .skill-name {
+    font-size: 0.85rem;
+  }
+}
+
+/* Chef's Recommendation Note */
+.chef-note {
+  max-width: 550px;
+  margin: 0 auto 2.5rem auto;
+  padding: 1.5rem 2rem;
+  background: var(--bg-card);
+  border: 2px dashed var(--accent-color);
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transform: rotate(-1deg);
+  transition: transform 0.3s ease;
+}
+
+.chef-note:hover {
+  transform: rotate(0deg);
+}
+
+.chef-note::before {
+  content: '📌';
+  position: absolute;
+  top: -10px;
+  right: 30px;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.chef-icon {
+  font-size: 2rem;
+  display: block;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.chef-text {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  text-align: center;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
-  .skills-column {
-    padding: 30px 20px;
-    gap: 1.2rem;
+  .chef-note {
+    max-width: 90%;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
   }
-
-  .skill-item {
-    padding: 15px;
+  
+  .chef-text {
+    font-size: 1rem;
   }
+}
 
-  .skill-name {
-    font-size: 1.4rem;
+@media (max-width: 480px) {
+  .chef-note {
+    padding: 1rem;
+    transform: rotate(0deg);
+  }
+  
+  .chef-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 }

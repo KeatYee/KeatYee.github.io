@@ -6,12 +6,12 @@ const About = () => {
     <section id="about" className="about section-fade-in">
       <div className="container">
         <h2 className="section-title">
-          About Me
+          My Story
         </h2>
         
         {/* My Background Section */}
         <div className="about-subsection">
-          <h3 className="subsection-title">My Background</h3>
+          <h3 className="subsection-title">🍜 My Journey</h3>
           <div className="background-content">
             <p>
               I'm a passionate Computer Science student at Sunway University with a strong interest in 
@@ -19,9 +19,9 @@ const About = () => {
               started with curiosity and has evolved into a dedicated pursuit of building impactful applications.
             </p>
             <p>
-              With a focus on modern web technologies and best practices, I'm committed to continuous 
-              learning and pushing the boundaries of what's possible with code. I believe in writing 
-              clean, efficient code that makes a difference.
+              When I'm not coding: You can find me crocheting intricate patterns, drawing digital art, 
+              or trying to perfect my cooking recipe. I believe that staying creative offline makes me a 
+              better logic-solver online ฅ●ω●ฅ
             </p>
             <a href="/resume.pdf" download="KeatYee_Resume.pdf" className="resume-download-btn" target="_blank" rel="noopener noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -36,7 +36,7 @@ const About = () => {
 
         {/* Education Card Section */}
         <div className="about-subsection">
-          <h3 className="subsection-title">Education</h3>
+          <h3 className="subsection-title">🎓 Education</h3>
           
           {/* Bachelor's Degree */}
           <div className="education-card">
@@ -97,7 +97,7 @@ const About = () => {
 
         {/* Working Experience Timeline */}
         <div className="about-subsection">
-          <h3 className="subsection-title">Working Experience</h3>
+          <h3 className="subsection-title">🧵 Work Experience</h3>
           <div className="timeline">
             <div className="timeline-item">
               <div className="timeline-dot"></div>
@@ -120,45 +120,6 @@ const About = () => {
                 </div>
               </div>
             </div>
-
-            {/* <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <div className="timeline-date">Jan 2024 - May 2024</div>
-                <h4>Web Development Volunteer</h4>
-                <p className="company">Student Tech Society</p>
-                <p className="role-description">
-                  Led a team of 4 students to build the university club's website. 
-                  Implemented features including event management, member registration, 
-                  and a blog system using MERN stack.
-                </p>
-                <div className="timeline-skills">
-                  <span>MongoDB</span>
-                  <span>Express.js</span>
-                  <span>React</span>
-                  <span>Node.js</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <div className="timeline-date">Sep 2023 - Dec 2023</div>
-                <h4>Freelance Web Developer</h4>
-                <p className="company">Self-Employed</p>
-                <p className="role-description">
-                  Created custom websites for local businesses and individuals. 
-                  Focused on responsive design, SEO optimization, and fast loading times. 
-                  Successfully delivered 5+ projects with 100% client satisfaction.
-                </p>
-                <div className="timeline-skills">
-                  <span>HTML/CSS</span>
-                  <span>JavaScript</span>
-                  <span>WordPress</span>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

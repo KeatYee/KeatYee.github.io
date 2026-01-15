@@ -1,0 +1,229 @@
+/* Japanese Lantern Theme Toggle */
+
+.lantern-toggle {
+  background: transparent;
+  border: none !important;
+  border-width: 0 !important;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+  outline: none !important;
+  min-width: 40px;
+  min-height: 40px;
+  justify-content: center;
+  transform-origin: top center;
+  box-shadow: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.lantern-toggle:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.lantern-toggle:focus-visible {
+  outline: 2px solid var(--accent-color) !important;
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+  box-shadow: none !important;
+}
+
+.lantern-toggle:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Lantern String */
+.lantern-string {
+  position: absolute;
+  width: 1.5px;
+  height: 8px;
+  background: var(--text-body);
+  top: -6px;
+  transform-origin: center top;
+  transition: all 0.3s ease;
+}
+
+/* SVG Lantern */
+.lantern-svg {
+  color: var(--text-primary);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 0 0px var(--accent-color));
+  width: 36px;
+  height: 48px;
+}
+
+/* Unlit state (Light Mode) */
+.lantern-svg.unlit {
+  color: var(--text-primary);
+}
+
+.lantern-svg.unlit .lantern-body {
+  fill: var(--bg-card);
+  stroke: var(--text-primary);
+}
+
+.lantern-svg.unlit .lantern-cap {
+  fill: var(--text-body);
+  stroke: var(--text-primary);
+}
+
+.lantern-svg.unlit .lantern-handle {
+  stroke: var(--text-body);
+}
+
+.lantern-svg.unlit .lantern-glow {
+  fill: none;
+}
+
+/* Lit state (Dark Mode) */
+.lantern-svg.lit {
+  color: var(--accent-color);
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6))
+          drop-shadow(0 0 16px rgba(245, 158, 11, 0.3));
+}
+
+.lantern-svg.lit .lantern-body {
+  fill: rgba(245, 158, 11, 0.15);
+  stroke: var(--accent-color);
+}
+
+.lantern-svg.lit .lantern-cap {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+}
+
+.lantern-svg.lit .lantern-handle {
+  stroke: var(--accent-color);
+}
+
+.lantern-svg.lit .lantern-glow {
+  fill: var(--accent-color);
+  filter: blur(2px);
+}
+
+.lantern-svg.lit .lantern-panel {
+  stroke: var(--accent-color) !important;
+  opacity: 0.5 !important;
+}
+
+/* Ambient glow effect */
+.lantern-ambient-glow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.lantern-ambient-glow.visible {
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(245, 158, 11, 0.15) 0%,
+    rgba(245, 158, 11, 0.05) 70%,
+    transparent 100%
+  );
+  opacity: 1;
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+}
+
+/* Swing Animation */
+@keyframes lanternSwing {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(-8deg);
+  }
+  50% {
+    transform: rotateZ(0deg);
+  }
+  75% {
+    transform: rotateZ(8deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes stringSwing {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(-12deg);
+  }
+  50% {
+    transform: rotateZ(0deg);
+  }
+  75% {
+    transform: rotateZ(12deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+.lantern-toggle.swinging {
+  animation: lanternSwing 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lantern-toggle.swinging .lantern-string {
+  animation: stringSwing 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Hover effect */
+.lantern-toggle:hover {
+  transform: scale(1.1);
+}
+
+.lantern-toggle:hover .lantern-svg.lit {
+  filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.8))
+          drop-shadow(0 0 24px rgba(245, 158, 11, 0.4));
+}
+
+.lantern-toggle:hover .lantern-ambient-glow.visible {
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.3);
+}
+
+/* Active click state */
+.lantern-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lantern-toggle {
+    min-width: 36px;
+    min-height: 36px;
+    top: 0.75rem;
+    right: 1rem;
+    padding: 4px;
+  }
+
+  .lantern-svg {
+    width: 32px;
+    height: 42px;
+  }
+
+  .lantern-string {
+    height: 6px;
+    top: -4px;
+  }
+}

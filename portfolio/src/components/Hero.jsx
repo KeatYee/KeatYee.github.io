@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Hero.css';
+import FloatingParticles from './FloatingParticles';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
@@ -8,7 +9,11 @@ const Hero = () => {
   const [typingSpeed, setTypingSpeed] = useState(150);
   const [scrollY, setScrollY] = useState(0);
 
-  const textToType = "A Computer Science student at Sunway University";
+  const textsToType = [
+    "Creative Full-Stack Developer who cooks code & crochets solutions",
+    "A Computer Science student at Sunway University",
+    "Lover of art and all things tech"
+  ];
 
   // Spotlight effect on name hover (trail removed)
   useEffect(() => {
@@ -81,20 +86,20 @@ const Hero = () => {
 
   useEffect(() => {
     const handleTyping = () => {
-      const fullText = textToType;
+      const currentText = textsToType[loopNum % textsToType.length];
       
       if (!isDeleting) {
         // Typing
-        setDisplayText(fullText.substring(0, displayText.length + 1));
+        setDisplayText(currentText.substring(0, displayText.length + 1));
         setTypingSpeed(50);
 
-        if (displayText === fullText) {
+        if (displayText === currentText) {
           // Pause before deleting
-          setTimeout(() => setIsDeleting(true), 1500);
+          setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
         // Deleting
-        setDisplayText(fullText.substring(0, displayText.length - 1));
+        setDisplayText(currentText.substring(0, displayText.length - 1));
         setTypingSpeed(25);
 
         if (displayText === '') {
@@ -106,10 +111,11 @@ const Hero = () => {
 
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, loopNum, typingSpeed, textToType]);
+  }, [displayText, isDeleting, loopNum, typingSpeed]);
 
   return (
     <section id="home" className="hero section-fade-in">
+      <FloatingParticles />
       <div 
         className="hero-background-layer"
         style={{
@@ -127,17 +133,17 @@ const Hero = () => {
         }}
       >
         <div className="hero-content">
-          <p className="hero-greeting animate-text-1">Hi! I'm</p>
+          <p className="hero-greeting animate-text-1">Welcome! I'm</p>
           <h1 className="hero-name animate-text-2">
             <span className="highlight">Loke Keat Yee</span>
           </h1>
           <p className="hero-subtitle animate-text-3 typing-effect-continuous">
             {displayText}
-            <span className="cursor-blink">|</span>
+            <span className="cursor-blink">_</span>
           </p>
           <div className="hero-buttons animate-text-4">
-            <a href="#projects" className="btn btn-primary">View My Work</a>
-            <a href="#contact" className="btn btn-secondary">Contact Me</a>
+            <a href="#projects" className="btn btn-primary">See My Creations</a>
+            <a href="#contact" className="btn btn-secondary">Place an Order</a>
           </div>
         </div>
       </div>

@@ -6,12 +6,75 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CustomCursor from './components/CustomCursor'
 import './App.css'
 
 function App() {
-  const cursorRef = useRef(null);
-  const particlesRef = useRef([]);
-  const animationFrameRef = useRef(null);
+  const bgMusicRef = useRef(null);
+
+  useEffect(() => {
+    // Enable custom cursor
+    document.body.classList.add('custom-cursor-active');
+    
+    // Initialize background music
+    bgMusicRef.current = new Audio('/background-music.mp3');
+    bgMusicRef.current.loop = true;
+    bgMusicRef.current.volume = 0.3;
+
+    // Check if muted
+    const isMuted = localStorage.getItem('soundMuted') === 'true';
+    
+    // Attempt to play background music (requires user interaction on most browsers)
+    if (!isMuted) {
+      const playMusic = () => {
+        bgMusicRef.current.play().catch(err => {
+          console.log('Background music autoplay prevented:', err);
+          // Add one-time click listener to start music
+          document.addEventListener('click', () => {
+            if (bgMusicRef.current && !isMuted) {
+              bgMusicRef.current.play().catch(err => console.log('Music play failed:', err));
+            }
+          }, { once: true });
+        });
+      };
+      playMusic();
+    }
+
+    // Listen for mute state changes
+    const handleMuteChange = () => {
+      const isMuted = document.documentElement.getAttribute('data-muted') === 'true';
+      if (bgMusicRef.current) {
+        if (isMuted) {
+          bgMusicRef.current.pause();
+        } else {
+          bgMusicRef.current.play().catch(err => console.log('Music play failed:', err));
+        }
+      }
+    };
+
+    // Create MutationObserver to watch for data-muted changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-muted') {
+          handleMuteChange();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-muted']
+    });
+    
+    return () => {
+      document.body.classList.remove('custom-cursor-active');
+      if (bgMusicRef.current) {
+        bgMusicRef.current.pause();
+        bgMusicRef.current = null;
+      }
+      observer.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     // Intersection Observer for scroll animations
@@ -40,114 +103,15 @@ function App() {
       observer.observe(el);
     });
 
-    // Create custom cursor element
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
-    cursorRef.current = cursor;
-
-    // Create particle container
-    const particleContainer = document.createElement('div');
-    particleContainer.className = 'cursor-particles';
-    document.body.appendChild(particleContainer);
-
-    const createParticle = (x, y) => {
-      const particle = document.createElement('div');
-      particle.className = 'cursor-particle';
-      particle.style.left = x + 'px';
-      particle.style.top = y + 'px';
-      particleContainer.appendChild(particle);
-
-      const size = Math.random() * 6 + 2;
-      particle.style.width = size + 'px';
-      particle.style.height = size + 'px';
-
-      const duration = Math.random() * 600 + 400;
-      particle.style.animation = `particleFloat ${duration}ms ease-out forwards`;
-
-      setTimeout(() => particle.remove(), duration);
-    };
-
-    let lastParticleTime = 0;
-
-    const handleMouseMove = (e) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.left = e.clientX + 'px';
-        cursorRef.current.style.top = e.clientY + 'px';
-
-        // Create particles with throttling
-        const now = Date.now();
-        if (now - lastParticleTime > 30) {
-          createParticle(e.clientX, e.clientY);
-          lastParticleTime = now;
-        }
-      }
-    };
-
-    const handleMouseEnter = (e) => {
-      // Check if hovering over interactive elements
-      const clickableSelectors = [
-        'a', 'button', '.btn', '.project-card', '.skill-item', 
-        'input', 'textarea', 'select', '.nav a', '.theme-toggle',
-        '.timeline-item', '.education-card', '.scroll-down',
-        '[role="button"]', '[onclick]', '.hero-name', '.highlight',
-        '.tech-tag', '.timeline-skills span', '.highlight-badge'
-      ].join(', ');
-      
-      if (e.target.matches(clickableSelectors) || e.target.closest(clickableSelectors)) {
-        cursorRef.current?.classList.add('hover');
-      }
-    };
-
-    const handleMouseLeave = (e) => {
-      const clickableSelectors = [
-        'a', 'button', '.btn', '.project-card', '.skill-item', 
-        'input', 'textarea', 'select', '.nav a', '.theme-toggle',
-        '.timeline-item', '.education-card', '.scroll-down',
-        '[role="button"]', '[onclick]', '.hero-name', '.highlight',
-        '.tech-tag', '.timeline-skills span', '.highlight-badge'
-      ].join(', ');
-      
-      if (e.target.matches(clickableSelectors) || e.target.closest(clickableSelectors)) {
-        cursorRef.current?.classList.remove('hover');
-      }
-    };
-
-    const handleMouseDown = () => {
-      cursorRef.current?.classList.add('click');
-    };
-
-    const handleMouseUp = () => {
-      cursorRef.current?.classList.remove('click');
-      setTimeout(() => {
-        cursorRef.current?.classList.remove('hover');
-      }, 100);
-    };
-
-    // Add event listeners
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseover', handleMouseEnter);
-    document.addEventListener('mouseout', handleMouseLeave);
-    document.addEventListener('mousedown', handleMouseDown);
-    document.addEventListener('mouseup', handleMouseUp);
-
     // Cleanup
     return () => {
       observer.disconnect();
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseover', handleMouseEnter);
-      document.removeEventListener('mouseout', handleMouseLeave);
-      document.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mouseup', handleMouseUp);
-      
-      if (cursorRef.current && document.body.contains(cursorRef.current)) {
-        document.body.removeChild(cursorRef.current);
-      }
     };
   }, []);
 
   return (
     <div className="App">
+      <CustomCursor />
       <Header />
       <main>
         <Hero />

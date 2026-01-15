@@ -1,0 +1,50 @@
+.fireflies-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; /* Behind content */
+  pointer-events: none;
+}
+
+.firefly {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #F59E0B; /* Warm Gold Color */
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px rgba(252, 211, 77, 0.4); /* Glow effect */
+  opacity: 0;
+  animation-name: floatAndFade;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* Dark Mode adjustment: Make them brighter/whiter at night */
+[data-theme='dark'] .firefly {
+  background-color: #FEF3C7;
+  box-shadow: 0 0 15px 4px rgba(254, 243, 199, 0.3);
+}
+
+@keyframes floatAndFade {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8; /* Fade in */
+  }
+  50% {
+    transform: translateY(-40px) translateX(20px) scale(1.2); /* Float up & right */
+    opacity: 0.4; /* Pulse dim */
+  }
+  80% {
+    opacity: 0.8; /* Pulse bright */
+  }
+  100% {
+    transform: translateY(-80px) translateX(-20px) scale(0.5); /* Float further up & left */
+    opacity: 0; /* Fade out */
+  }
+}
