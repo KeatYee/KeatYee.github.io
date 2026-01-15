@@ -3,7 +3,7 @@ import './About.css';
 
 const About = () => {
   return (
-    <section id="about" className="about">
+    <section id="about" className="about section-fade-in">
       <div className="container">
         <h2 className="section-title">
           About Me

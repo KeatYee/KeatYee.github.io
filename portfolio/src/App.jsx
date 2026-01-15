@@ -10,6 +10,8 @@ import './App.css'
 
 function App() {
   const cursorRef = useRef(null);
+  const particlesRef = useRef([]);
+  const animationFrameRef = useRef(null);
 
   useEffect(() => {
     // Intersection Observer for scroll animations
@@ -44,10 +46,41 @@ function App() {
     document.body.appendChild(cursor);
     cursorRef.current = cursor;
 
+    // Create particle container
+    const particleContainer = document.createElement('div');
+    particleContainer.className = 'cursor-particles';
+    document.body.appendChild(particleContainer);
+
+    const createParticle = (x, y) => {
+      const particle = document.createElement('div');
+      particle.className = 'cursor-particle';
+      particle.style.left = x + 'px';
+      particle.style.top = y + 'px';
+      particleContainer.appendChild(particle);
+
+      const size = Math.random() * 6 + 2;
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+
+      const duration = Math.random() * 600 + 400;
+      particle.style.animation = `particleFloat ${duration}ms ease-out forwards`;
+
+      setTimeout(() => particle.remove(), duration);
+    };
+
+    let lastParticleTime = 0;
+
     const handleMouseMove = (e) => {
       if (cursorRef.current) {
         cursorRef.current.style.left = e.clientX + 'px';
         cursorRef.current.style.top = e.clientY + 'px';
+
+        // Create particles with throttling
+        const now = Date.now();
+        if (now - lastParticleTime > 30) {
+          createParticle(e.clientX, e.clientY);
+          lastParticleTime = now;
+        }
       }
     };
 

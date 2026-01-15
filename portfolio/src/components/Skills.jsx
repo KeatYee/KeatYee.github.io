@@ -65,7 +65,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="skills">
+    <section id="skills" className="skills section-fade-in">
       <div className="container">
         <h2 className="section-title">Skills & Technologies</h2>
         <div className="skills-column">

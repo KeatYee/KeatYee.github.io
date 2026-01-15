@@ -47,7 +47,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="projects">
+    <section id="projects" className="projects section-fade-in">
       <div className="container">
         <h2 className="section-title">
           Projects

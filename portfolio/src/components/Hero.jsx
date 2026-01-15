@@ -109,7 +109,7 @@ const Hero = () => {
   }, [displayText, isDeleting, loopNum, typingSpeed, textToType]);
 
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero section-fade-in">
       <div 
         className="hero-background-layer"
         style={{
