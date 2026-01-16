@@ -15,9 +15,13 @@ const Contact = () => {
     // Check if muted
     const isMuted = document.documentElement.getAttribute('data-muted') === 'true';
     
+    console.log('Playing doorbell sound, isMuted:', isMuted);
+    
     if (!isMuted && doorbellSoundRef.current) {
       doorbellSoundRef.current.currentTime = 0;
-      doorbellSoundRef.current.play().catch(err => console.log('Doorbell sound play failed:', err));
+      doorbellSoundRef.current.play()
+        .then(() => console.log('Doorbell sound played successfully'))
+        .catch(err => console.error('Doorbell sound play failed:', err));
     }
   };
 

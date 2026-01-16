@@ -9,7 +9,7 @@ const Skills = () => {
   useEffect(() => {
     // Initialize paper slide sound
     paperSoundRef.current = new Audio('/paper-slide.wav');
-    paperSoundRef.current.volume = 0.4;
+    paperSoundRef.current.volume = 0.9;
 
     const handleMouseEnter = () => {
       // Check if muted

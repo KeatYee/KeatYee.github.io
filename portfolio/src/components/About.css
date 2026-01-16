@@ -58,8 +58,156 @@
 
 /* My Background Section */
 .background-content {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
+}
+
+.journey-wrapper {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.avatar-container {
+  position: relative;
+  flex-shrink: 0;
+  width: min(280px, 100%);
+  max-width: 280px;
+}
+
+.speech-bubble {
+  position: absolute;
+  top: -95px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+  border: 3px solid var(--accent-color);
+  padding: 0.75rem 1.2rem;
+  border-radius: 12px;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  animation: bubblePop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), bubbleFloat 2s ease-in-out infinite;
+  z-index: 10;
+  width: 160px;
+  backdrop-filter: blur(10px);
+}
+
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 18px solid var(--accent-color);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-top: 15px solid var(--bg-card);
+}
+
+.bubble-content {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes bubblePop {
+  0% {
+    transform: translateX(-50%) scale(0) rotate(-5deg);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-50%) scale(1.15) rotate(2deg);
+  }
+  100% {
+    transform: translateX(-50%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes bubbleFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+.avatar-image {
+  width: min(280px, 100%);
+  height: auto;
+  aspect-ratio: 280 / 330;
+  max-width: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.avatar-image:hover {
+  transform: scale(1.02);
+}
+
+.avatar-image.avatar-clicked {
+  animation: avatarBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes avatarBounce {
+  0% { 
+    transform: scale(1, 1); 
+  }
+  20% { 
+    transform: scale(1.1, 0.8); /* Squish down */
+  }
+  40% { 
+    transform: scale(0.95, 1.15); /* Bounce up (overshoot) */
+  }
+  60% { 
+    transform: scale(1.05, 0.95); /* Slight squish again */
+  }
+  80% { 
+    transform: scale(0.98, 1.02); /* Minor bounce */
+  }
+  100% { 
+    transform: scale(1, 1); /* Back to normal */
+  }
+}
+
+.journey-text {
+  flex: 1;
+}
+
+.journey-text p {
+  color: var(--text-body);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  transition: color 0.3s ease;
 }
 
 .background-content p {
@@ -69,6 +217,47 @@
   margin-bottom: 1.5rem;
   text-align: justify;
   transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .journey-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .avatar-container {
+    width: min(200px, 80vw);
+    max-width: 200px;
+  }
+  
+  .avatar-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 280 / 330;
+  }
+
+  .speech-bubble {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -100px;
+    width: min(160px, 70vw);
+  }
+
+  .speech-bubble::before {
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+    top: auto;
+    bottom: -20px;
+  }
+
+  .speech-bubble::after {
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+    top: auto;
+    bottom: -14px;
+  }
 }
 
 /* Resume Download Button - Order Ticket Style */

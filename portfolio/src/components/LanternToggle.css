@@ -212,8 +212,9 @@
   .lantern-toggle {
     min-width: 36px;
     min-height: 36px;
-    top: 0.75rem;
-    right: 1rem;
+    position: relative;
+    top: auto;
+    right: auto;
     padding: 4px;
   }
 

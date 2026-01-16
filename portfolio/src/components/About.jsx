@@ -1,7 +1,49 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './About.css';
 
 const About = () => {
+  const [showBubble, setShowBubble] = useState(false);
+  const [greeting, setGreeting] = useState('');
+  const squeakSoundRef = useRef(null);
+
+  const greetings = [
+    "Fresh code served daily! ☕",
+    "I made this sweater myself! 🧶",
+    "Need a website? I'm cooking one up! 🍳",
+    "Coding and crocheting, my two loves! 🖥️🧵",
+    "Creativity fuels my code! 🎨💡",];
+
+  useEffect(() => {
+    squeakSoundRef.current = new Audio('/squeak.wav');
+    squeakSoundRef.current.volume = 0.4;
+  }, []);
+
+  const handleAvatarClick = () => {
+    const avatar = document.querySelector('.avatar-image');
+    avatar.classList.add('avatar-clicked');
+    
+    // Play squeak sound
+    const isMuted = document.documentElement.getAttribute('data-muted') === 'true';
+    if (!isMuted && squeakSoundRef.current) {
+      squeakSoundRef.current.currentTime = 0;
+      squeakSoundRef.current.play().catch(err => console.log('Squeak sound play failed:', err));
+    }
+    
+    // Show random greeting
+    const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+    setGreeting(randomGreeting);
+    setShowBubble(true);
+    
+    setTimeout(() => {
+      avatar.classList.remove('avatar-clicked');
+    }, 600);
+
+    // Hide bubble after 3 seconds
+    setTimeout(() => {
+      setShowBubble(false);
+    }, 3000);
+  };
+
   return (
     <section id="about" className="about section-fade-in">
       <div className="container">
@@ -13,16 +55,33 @@ const About = () => {
         <div className="about-subsection">
           <h3 className="subsection-title">🍜 My Journey</h3>
           <div className="background-content">
-            <p>
-              I'm a passionate Computer Science student at Sunway University with a strong interest in 
-              full-stack development and creating innovative digital solutions. My journey in technology 
-              started with curiosity and has evolved into a dedicated pursuit of building impactful applications.
-            </p>
-            <p>
-              When I'm not coding: You can find me crocheting intricate patterns, drawing digital art, 
-              or trying to perfect my cooking recipe. I believe that staying creative offline makes me a 
-              better logic-solver online ฅ●ω●ฅ
-            </p>
+            <div className="journey-wrapper">
+              <div className="avatar-container">
+                <img 
+                  src="/avatar.png" 
+                  alt="Keat Yee Avatar" 
+                  className="avatar-image" 
+                  onClick={handleAvatarClick}
+                />
+                {showBubble && (
+                  <div className="speech-bubble">
+                    <div className="bubble-content">{greeting}</div>
+                  </div>
+                )}
+              </div>
+              <div className="journey-text">
+                <p>
+                  I'm a passionate Computer Science student at Sunway University with a strong interest in 
+                  full-stack development and creating innovative digital solutions. My journey in technology 
+                  started with curiosity and has evolved into a dedicated pursuit of building impactful applications.
+                </p>
+                <p>
+                  When I'm not coding: You can find me crocheting intricate patterns, drawing digital art, 
+                  or trying to perfect my cooking recipe. I believe that staying creative offline makes me a 
+                  better logic-solver online ฅ●ω●ฅ
+                </p>
+              </div>
+            </div>
             <a href="/resume.pdf" download="KeatYee_Resume.pdf" className="resume-download-btn" target="_blank" rel="noopener noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>

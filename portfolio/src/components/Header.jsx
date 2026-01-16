@@ -6,12 +6,13 @@ const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const switchSoundRef = useRef(null);
 
   useEffect(() => {
     // Initialize audio
     switchSoundRef.current = new Audio('/switch.wav');
-    switchSoundRef.current.volume = 0.3;
+    switchSoundRef.current.volume = 0.8;
 
     // Check for saved theme preference or default to light (warm theme)
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -62,10 +63,20 @@ const Header = () => {
     }
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <nav className="nav">
+        <button className="hamburger" onClick={toggleMenu} aria-label="Toggle menu">
+          <span className={isMenuOpen ? 'open' : ''}></span>
+          <span className={isMenuOpen ? 'open' : ''}></span>
+          <span className={isMenuOpen ? 'open' : ''}></span>
+        </button>
+        
+        <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <ul>
             <li>
               <a href="#home">

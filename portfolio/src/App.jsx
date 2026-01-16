@@ -19,7 +19,7 @@ function App() {
     // Initialize background music
     bgMusicRef.current = new Audio('/background-music.mp3');
     bgMusicRef.current.loop = true;
-    bgMusicRef.current.volume = 0.3;
+    bgMusicRef.current.volume = 0.2;
 
     // Check if muted
     const isMuted = localStorage.getItem('soundMuted') === 'true';

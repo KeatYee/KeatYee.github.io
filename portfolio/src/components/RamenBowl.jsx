@@ -16,7 +16,7 @@ const RamenBowl = () => {
   // Initialize audio
   useEffect(() => {
     bubbleSoundRef.current = new Audio('/bubble.wav');
-    bubbleSoundRef.current.volume = 0.3;
+    bubbleSoundRef.current.volume = 0.5;
   }, []);
 
   // Skill ingredient data
@@ -280,6 +280,13 @@ const RamenBowl = () => {
             <div
               key={skill.name}
               className="ingredient-mobile"
+              onClick={() => {
+                const isMuted = document.documentElement.getAttribute('data-muted') === 'true';
+                if (!isMuted && bubbleSoundRef.current) {
+                  bubbleSoundRef.current.currentTime = 0;
+                  bubbleSoundRef.current.play().catch(err => console.log('Bubble sound play failed:', err));
+                }
+              }}
               style={{
                 backgroundColor: colors.bg,
                 color: colors.text,

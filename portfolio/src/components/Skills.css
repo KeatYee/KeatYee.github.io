@@ -65,11 +65,13 @@
 @media (max-width: 768px) {
   .skills {
     padding: 3rem 1rem;
+    overflow: hidden;
   }
   
   .section-title {
     font-size: 2rem;
     margin-bottom: 2rem;
+    animation: fadeInDown 0.6s ease-out;
   }
   
   .skills-grid {
@@ -81,15 +83,52 @@
     padding: 1.25rem 1rem;
     border-radius: 6px;
     min-height: 85px;
+    animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) backwards;
   }
+
+  /* Staggered animation delays */
+  .skill-jar:nth-child(1) { animation-delay: 0.1s; }
+  .skill-jar:nth-child(2) { animation-delay: 0.15s; }
+  .skill-jar:nth-child(3) { animation-delay: 0.2s; }
+  .skill-jar:nth-child(4) { animation-delay: 0.25s; }
+  .skill-jar:nth-child(5) { animation-delay: 0.3s; }
+  .skill-jar:nth-child(6) { animation-delay: 0.35s; }
+  .skill-jar:nth-child(7) { animation-delay: 0.4s; }
+  .skill-jar:nth-child(8) { animation-delay: 0.45s; }
+  .skill-jar:nth-child(9) { animation-delay: 0.5s; }
+  .skill-jar:nth-child(10) { animation-delay: 0.55s; }
+  .skill-jar:nth-child(11) { animation-delay: 0.6s; }
+  .skill-jar:nth-child(12) { animation-delay: 0.65s; }
   
-  .skill-jar:hover {
-    transform: translateY(-3px);
-    box-shadow: 3px 4px 8px var(--shadow-color);
+  .skill-jar:active {
+    transform: scale(0.95) translateY(-2px);
+    transition: transform 0.1s ease;
   }
   
   .skill-name {
     font-size: 0.9rem;
+  }
+
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3) translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
@@ -159,10 +198,27 @@
     max-width: 90%;
     padding: 1.25rem 1.5rem;
     margin-bottom: 2rem;
+    animation: slideInLeft 0.6s ease-out;
+  }
+  
+  .chef-note:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
   }
   
   .chef-text {
     font-size: 1rem;
+  }
+
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px) rotate(-2deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) rotate(-1deg);
+    }
   }
 }
 

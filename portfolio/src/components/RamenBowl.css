@@ -102,6 +102,7 @@
 .ingredient-mobile:hover {
   transform: translateY(-4px);
   box-shadow: 4px 8px 12px var(--shadow-color);
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
