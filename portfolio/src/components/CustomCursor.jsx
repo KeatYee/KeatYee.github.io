@@ -43,12 +43,18 @@ const CustomCursor = () => {
     let lastParticleTime = 0;
 
     const updatePosition = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      // Handle both mouse and touch events
+      const clientX = e.clientX !== undefined ? e.clientX : e.touches?.[0]?.clientX;
+      const clientY = e.clientY !== undefined ? e.clientY : e.touches?.[0]?.clientY;
+
+      if (clientX === undefined || clientY === undefined) return;
+
+      setPosition({ x: clientX, y: clientY });
 
       // Create particle trail (throttled)
       const now = Date.now();
       if (now - lastParticleTime > 50) {
-        createParticle(e.clientX, e.clientY);
+        createParticle(clientX, clientY);
         lastParticleTime = now;
       }
 
@@ -57,10 +63,10 @@ const CustomCursor = () => {
       if (bowlElement) {
         const rect = bowlElement.getBoundingClientRect();
         const isInside = 
-          e.clientX >= rect.left &&
-          e.clientX <= rect.right &&
-          e.clientY >= rect.top &&
-          e.clientY <= rect.bottom;
+          clientX >= rect.left &&
+          clientX <= rect.right &&
+          clientY >= rect.top &&
+          clientY <= rect.bottom;
         
         setIsOverBowl(isInside);
       }
@@ -72,11 +78,22 @@ const CustomCursor = () => {
     document.addEventListener('mousemove', updatePosition);
     document.addEventListener('mousedown', handleMouseDown);
     document.addEventListener('mouseup', handleMouseUp);
+    
+    // Add touch event listeners for mobile
+    document.addEventListener('touchmove', updatePosition, { passive: true });
+    document.addEventListener('touchstart', (e) => {
+      handleMouseDown();
+      updatePosition(e);
+    });
+    document.addEventListener('touchend', handleMouseUp);
 
     return () => {
       document.removeEventListener('mousemove', updatePosition);
       document.removeEventListener('mousedown', handleMouseDown);
       document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('touchmove', updatePosition);
+      document.removeEventListener('touchstart', handleMouseDown);
+      document.removeEventListener('touchend', handleMouseUp);
       if (particleContainer.parentNode) {
         particleContainer.remove();
       }
